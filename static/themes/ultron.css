@@ -1,0 +1,287 @@
+/* ULTRON THEME - Dark Futuristic with Glowing Red Circuits */
+
+:root {
+  /* Ultron Dark Palette */
+  --color-gray-50: #1a0a0a;
+  --color-gray-100: #1f0f0f;
+  --color-gray-200: #2a1515;
+  --color-gray-300: #3d1f1f;
+  --color-gray-400: #4d2626;
+  --color-gray-500: #5c2e2e;
+  --color-gray-600: #7a3838;
+  --color-gray-700: #8f4444;
+  --color-gray-800: #1a1a1a;
+  --color-gray-850: #0f0f0f;
+  --color-gray-900: #0a0a0a;
+  --color-gray-950: #050505;
+  
+  /* Ultron Red Glow */
+  --ultron-red: #ff0000;
+  --ultron-red-glow: #ff3333;
+  --ultron-red-dark: #cc0000;
+  --ultron-red-bright: #ff6666;
+  
+  /* Circuit Effects */
+  --circuit-glow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.3), 0 0 30px rgba(255, 0, 0, 0.1);
+  --circuit-glow-strong: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.5), 0 0 45px rgba(255, 0, 0, 0.3);
+}
+
+/* Background with circuit pattern */
+body {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 0, 0, 0.03) 2px, rgba(255, 0, 0, 0.03) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 0, 0, 0.03) 2px, rgba(255, 0, 0, 0.03) 4px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* Glowing red borders and accents */
+.border, [class*="border-"] {
+  border-color: rgba(255, 0, 0, 0.3) !important;
+}
+
+/* Buttons with red glow */
+button, .btn {
+  background: linear-gradient(135deg, #1a0a0a 0%, #2a1515 100%);
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  box-shadow: var(--circuit-glow);
+  transition: all 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  background: linear-gradient(135deg, #2a1515 0%, #3d1f1f 100%);
+  border-color: var(--ultron-red);
+  box-shadow: var(--circuit-glow-strong);
+  transform: translateY(-2px);
+}
+
+/* Input fields with red glow */
+input, textarea, select {
+  background: rgba(10, 10, 10, 0.8) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3) !important;
+  color: #ff6666 !important;
+  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--ultron-red) !important;
+  box-shadow: var(--circuit-glow), inset 0 0 15px rgba(255, 0, 0, 0.2) !important;
+  outline: none !important;
+}
+
+/* Cards and panels */
+.card, [class*="bg-white"], [class*="bg-gray"] {
+  background: linear-gradient(135deg, rgba(26, 10, 10, 0.9) 0%, rgba(15, 15, 15, 0.9) 100%) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  box-shadow: var(--circuit-glow);
+  backdrop-filter: blur(10px);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 10, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ultron-red-dark) 0%, var(--ultron-red) 100%);
+  border-radius: 10px;
+  box-shadow: var(--circuit-glow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--ultron-red) 0%, var(--ultron-red-bright) 100%);
+  box-shadow: var(--circuit-glow-strong);
+}
+
+/* Text with red glow */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ultron-red-bright) !important;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  font-weight: 700;
+}
+
+/* Links */
+a {
+  color: var(--ultron-red-bright) !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--ultron-red) !important;
+  text-shadow: var(--circuit-glow);
+}
+
+/* Sidebar styling */
+aside, nav, [class*="sidebar"] {
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(26, 10, 10, 0.95) 100%) !important;
+  border-right: 2px solid rgba(255, 0, 0, 0.4);
+  box-shadow: 5px 0 20px rgba(255, 0, 0, 0.2);
+}
+
+/* Chat messages */
+.message, [class*="message"] {
+  background: rgba(15, 15, 15, 0.8);
+  border-left: 3px solid var(--ultron-red);
+  box-shadow: -5px 0 15px rgba(255, 0, 0, 0.1);
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+}
+
+/* Code blocks */
+pre, code {
+  background: rgba(5, 5, 5, 0.9) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: var(--circuit-glow);
+  }
+  50% {
+    box-shadow: var(--circuit-glow-strong);
+  }
+}
+
+@keyframes circuit-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animated circuit lines */
+.circuit-line {
+  animation: circuit-flow 3s ease infinite;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 0, 0, 0.3) 25%, 
+    var(--ultron-red) 50%, 
+    rgba(255, 0, 0, 0.3) 75%, 
+    transparent 100%);
+  background-size: 200% 100%;
+}
+
+/* Modal overlays */
+.modal, [class*="modal"] {
+  background: rgba(10, 10, 10, 0.95) !important;
+  border: 2px solid var(--ultron-red);
+  box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
+}
+
+/* Loading spinners */
+.spinner, [class*="loading"] {
+  border-color: rgba(255, 0, 0, 0.2);
+  border-top-color: var(--ultron-red);
+  animation: spin 1s linear infinite, pulse-red 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Tooltips */
+.tooltip, [data-tooltip] {
+  background: rgba(10, 10, 10, 0.95) !important;
+  border: 1px solid var(--ultron-red);
+  box-shadow: var(--circuit-glow-strong);
+  color: var(--ultron-red-bright) !important;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+/* Placeholder text */
+::placeholder {
+  color: rgba(255, 102, 102, 0.5) !important;
+}
+
+/* Badges and tags */
+.badge, .tag, [class*="badge"], [class*="tag"] {
+  background: linear-gradient(135deg, var(--ultron-red-dark) 0%, var(--ultron-red) 100%);
+  border: 1px solid var(--ultron-red-bright);
+  box-shadow: var(--circuit-glow);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Tables */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+th {
+  background: linear-gradient(180deg, rgba(26, 10, 10, 0.9) 0%, rgba(15, 15, 15, 0.9) 100%);
+  border-bottom: 2px solid var(--ultron-red);
+  color: var(--ultron-red-bright) !important;
+  font-weight: 700;
+}
+
+td {
+  border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+tr:hover {
+  background: rgba(255, 0, 0, 0.05);
+}
+
+/* Progress bars */
+.progress, [class*="progress"] {
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.progress-bar, [class*="progress-bar"] {
+  background: linear-gradient(90deg, var(--ultron-red-dark) 0%, var(--ultron-red) 50%, var(--ultron-red-bright) 100%);
+  box-shadow: var(--circuit-glow);
+  animation: circuit-flow 2s ease infinite;
+  background-size: 200% 100%;
+}
+
+/* Dividers */
+hr {
+  border-color: rgba(255, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+/* Icons with glow */
+svg, i, [class*="icon"] {
+  filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.5));
+  transition: filter 0.3s ease;
+}
+
+svg:hover, i:hover, [class*="icon"]:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.8));
+}
