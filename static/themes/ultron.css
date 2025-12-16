@@ -1,7 +1,7 @@
-/* ULTRON THEME - Dark Futuristic with Glowing Red Circuits */
+/* ARMORY THEME - Dark Tactical with Glowing Red Circuits */
 
 :root {
-  /* Ultron Dark Palette */
+  /* ARMORY Dark Palette */
   --color-gray-50: #1a0a0a;
   --color-gray-100: #1f0f0f;
   --color-gray-200: #2a1515;
@@ -15,21 +15,28 @@
   --color-gray-900: #0a0a0a;
   --color-gray-950: #050505;
   
-  /* Ultron Red Glow */
+  /* ARMORY Red Glow - Enhanced */
   --ultron-red: #ff0000;
   --ultron-red-glow: #ff3333;
   --ultron-red-dark: #cc0000;
   --ultron-red-bright: #ff6666;
+  --armory-red: #e60000;
+  --armory-gold: #cc9900;
   
-  /* Circuit Effects */
+  /* Circuit Effects - Enhanced */
   --circuit-glow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.3), 0 0 30px rgba(255, 0, 0, 0.1);
   --circuit-glow-strong: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.5), 0 0 45px rgba(255, 0, 0, 0.3);
+  --tactical-glow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.4), 0 0 60px rgba(255, 0, 0, 0.2);
 }
 
-/* Background with circuit pattern */
+/* Background with layered images - ARMORY */
 body {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
-  background-attachment: fixed;
+  background: 
+    url('/assets/images/armory-grid-overlay.png') center/cover no-repeat fixed,
+    url('/assets/images/armory-hex-bg.png') center/cover no-repeat fixed,
+    url('/assets/images/armory-plasma-bg.png') center/cover no-repeat fixed,
+    linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
+  background-attachment: fixed, fixed, fixed, fixed;
   position: relative;
 }
 
@@ -40,12 +47,31 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 0, 0, 0.03) 2px, rgba(255, 0, 0, 0.03) 4px),
-    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 0, 0, 0.03) 2px, rgba(255, 0, 0, 0.03) 4px);
+  background-image: url('/assets/images/armory-circuit-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.5;
+  opacity: 0.3;
+  animation: subtle-pulse 8s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 10, 10, 0.7) 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Glowing red borders and accents */
@@ -53,19 +79,43 @@ body::before {
   border-color: rgba(255, 0, 0, 0.3) !important;
 }
 
-/* Buttons with red glow */
+/* Buttons with red glow - ENHANCED */
 button, .btn {
   background: linear-gradient(135deg, #1a0a0a 0%, #2a1515 100%);
-  border: 1px solid rgba(255, 0, 0, 0.4);
+  border: 1px solid rgba(255, 0, 0, 0.5);
   box-shadow: var(--circuit-glow);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before, .btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
 }
 
 button:hover, .btn:hover {
   background: linear-gradient(135deg, #2a1515 0%, #3d1f1f 100%);
   border-color: var(--ultron-red);
-  box-shadow: var(--circuit-glow-strong);
-  transform: translateY(-2px);
+  box-shadow: var(--tactical-glow);
+  transform: translateY(-2px) scale(1.02);
+}
+
+button:hover::before, .btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+button:active, .btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* Input fields with red glow */
@@ -82,12 +132,20 @@ input:focus, textarea:focus, select:focus {
   outline: none !important;
 }
 
-/* Cards and panels */
+/* Cards and panels - TACTICAL DESIGN */
 .card, [class*="bg-white"], [class*="bg-gray"] {
-  background: linear-gradient(135deg, rgba(26, 10, 10, 0.9) 0%, rgba(15, 15, 15, 0.9) 100%) !important;
-  border: 1px solid rgba(255, 0, 0, 0.3);
-  box-shadow: var(--circuit-glow);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(15, 15, 15, 0.95) 100%) !important;
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  border-left: 3px solid var(--armory-red);
+  box-shadow: var(--circuit-glow), inset 0 1px 0 rgba(255, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+}
+
+.card:hover, [class*="bg-white"]:hover, [class*="bg-gray"]:hover {
+  border-color: var(--ultron-red);
+  box-shadow: var(--tactical-glow), inset 0 1px 0 rgba(255, 0, 0, 0.2);
+  transform: translateX(2px);
 }
 
 /* Scrollbar styling */
@@ -254,6 +312,163 @@ td {
 }
 
 tr:hover {
+  background: rgba(255, 0, 0, 0.1);
+  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+/* Code blocks - TACTICAL STYLING */
+pre, code {
+  background: rgba(5, 5, 5, 0.9) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-left: 3px solid var(--armory-red);
+  box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.1), var(--circuit-glow);
+  font-family: 'Courier New', monospace;
+  color: var(--ultron-red-bright) !important;
+}
+
+/* Progress bars */
+.progress-bar, [class*="progress"] {
+  background: linear-gradient(90deg, 
+    var(--ultron-red-dark) 0%, 
+    var(--ultron-red) 50%, 
+    var(--ultron-red-bright) 100%);
+  box-shadow: var(--tactical-glow);
+  animation: progress-glow 2s ease-in-out infinite;
+}
+
+@keyframes progress-glow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Dropdown menus */
+.dropdown, select, [class*="dropdown"] {
+  background: rgba(10, 10, 10, 0.95) !important;
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  box-shadow: var(--circuit-glow);
+}
+
+.dropdown-item:hover, option:hover {
+  background: rgba(255, 0, 0, 0.2) !important;
+  color: var(--ultron-red-bright) !important;
+}
+
+/* Switches and toggles */
+.switch, [type="checkbox"], [type="radio"] {
+  accent-color: var(--ultron-red);
+}
+
+/* Dividers */
+hr {
+  border-color: rgba(255, 0, 0, 0.3);
+  box-shadow: 0 1px 5px rgba(255, 0, 0, 0.2);
+}
+
+/* Alert messages */
+.alert, [class*="alert"] {
+  background: rgba(26, 10, 10, 0.9);
+  border-left: 4px solid var(--ultron-red);
+  box-shadow: var(--circuit-glow);
+  color: var(--ultron-red-bright);
+}
+
+/* Icon glows */
+svg, i, [class*="icon"] {
+  filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.5));
+  transition: filter 0.3s ease;
+}
+
+svg:hover, i:hover, [class*="icon"]:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.8));
+}
+
+/* Animated background elements */
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  }
+}
+
+/* Scanline effect overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff0000, transparent);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+  animation: scanline 4s linear infinite;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes scanline {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+/* Header/Navigation enhancement */
+header, .header, nav {
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(26, 10, 10, 0.98) 100%) !important;
+  border-bottom: 2px solid var(--armory-red);
+  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* Footer styling */
+footer {
+  background: linear-gradient(0deg, rgba(10, 10, 10, 0.98) 0%, rgba(26, 10, 10, 0.98) 100%) !important;
+  border-top: 2px solid var(--armory-red);
+  box-shadow: 0 -5px 20px rgba(255, 0, 0, 0.2);
+}
+
+/* Input group enhancements */
+.input-group, [class*="input-group"] {
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--circuit-glow);
+}
+
+/* Form labels */
+label {
+  color: var(--ultron-red-bright) !important;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+/* Disabled states */
+:disabled, [disabled] {
+  opacity: 0.4;
+  filter: grayscale(0.5);
+}
+
+/* Active/Focus states */
+.active, :active, [class*="active"] {
+  background: rgba(255, 0, 0, 0.15) !important;
+  border-color: var(--ultron-red) !important;
+}
+
+/* Brand colors for ARMORY */
+.text-primary, [class*="text-primary"] {
+  color: var(--armory-red) !important;
+}
+
+.bg-primary, [class*="bg-primary"] {
+  background: var(--armory-red) !important;
+}
+
+/* Accent color - gold for special elements */
+.accent, [class*="accent"] {
+  color: var(--armory-gold) !important;
+  text-shadow: 0 0 10px rgba(204, 153, 0, 0.5);
+}
   background: rgba(255, 0, 0, 0.05);
 }
 
