@@ -1,8 +1,8 @@
-hg# Open WebUI - AI Agent Instructions
+hg# OASIS - AI Agent Instructions
 
 ## Architecture Overview
 
-**Open WebUI** is a self-hosted full-stack AI platform combining a **FastAPI backend** with a **SvelteKit frontend**, supporting LLM providers (Ollama, OpenAI-compatible APIs) with built-in RAG capabilities.
+**OASIS** is a self-hosted full-stack AI platform combining a **FastAPI backend** with a **SvelteKit frontend**, supporting LLM providers (Ollama, OpenAI-compatible APIs) with built-in RAG capabilities.
 
 ### Core Stack
 - **Backend**: FastAPI + SQLAlchemy (primary) + Peewee (legacy migrations), uvicorn server
@@ -13,7 +13,7 @@ hg# Open WebUI - AI Agent Instructions
 
 ### Key Components
 
-#### Backend Structure (`backend/open_webui/`)
+#### Backend Structure (`backend/oasis/`)
 - **`main.py`**: FastAPI app initialization, middleware setup, router registration
 - **`routers/`**: API endpoints organized by domain (chats, users, models, retrieval, pipelines, etc.)
 - **`models/`**: SQLAlchemy ORM models + Pydantic schemas (e.g., `Chat` class for DB, `ChatModel` for validation)
@@ -34,9 +34,9 @@ External Python plugins that extend LLM behavior via filter/action hooks:
 - **Filter pipelines**: Intercept requests/responses (inlet/outlet) to modify payloads before/after LLM calls
 - **Manifold pipes**: A single function that exposes multiple sub-models dynamically
 - Configured via `OPENAI_API_BASE_URLS` and `OPENAI_API_KEYS` environment variables
-- See `backend/open_webui/routers/pipelines.py` for implementation details
+- See `backend/oasis/routers/pipelines.py` for implementation details
 
-#### RAG System (`backend/open_webui/retrieval/`)
+#### RAG System (`backend/oasis/retrieval/`)
 - Supports multiple vector databases: ChromaDB (default), Milvus, Qdrant, OpenSearch, Pinecone
 - Embedding models via sentence-transformers (default: `all-MiniLM-L6-v2`)
 - Optional reranking with Colbert
@@ -68,7 +68,7 @@ Primary compose file: `docker-compose.yaml` (includes Ollama service)
 
 ### Database Migrations
 - **Alembic** (SQLAlchemy): Primary migration system
-  - Migrations in `backend/open_webui/migrations/versions/`
+  - Migrations in `backend/oasis/migrations/versions/`
   - Auto-run on app startup via `config.py:run_migrations()`
   - Manual: `alembic upgrade head`
 - **Peewee**: Legacy compatibility handled via `internal/db.py:handle_peewee_migration()`
@@ -83,7 +83,7 @@ Primary compose file: `docker-compose.yaml` (includes Ollama service)
 ### Backend Patterns
 
 #### Router Organization
-All routers follow this structure in `backend/open_webui/routers/*.py`:
+All routers follow this structure in `backend/oasis/routers/*.py`:
 ```python
 from fastapi import APIRouter
 router = APIRouter()
@@ -140,12 +140,12 @@ Global stores in `src/lib/stores/index.ts`:
 Access pattern: `import { user } from '$lib/stores'` then `$user` in templates
 
 #### Environment Variables
-- Backend: `backend/open_webui/env.py` - parses env vars with defaults
+- Backend: `backend/oasis/env.py` - parses env vars with defaults
 - Frontend: Vite defines (`APP_VERSION`, `APP_BUILD_HASH`) in `vite.config.ts`
 
 ### Configuration Hierarchy
 1. Environment variables (`.env` file loaded by `dotenv`)
-2. Database config table (managed via `backend/open_webui/config.py`)
+2. Database config table (managed via `backend/oasis/config.py`)
 3. Hardcoded defaults in `env.py`
 
 Key env vars:
@@ -157,28 +157,28 @@ Key env vars:
 ## Integration Points
 
 ### Adding a New Backend Endpoint
-1. Create router file in `backend/open_webui/routers/new_resource.py`
+1. Create router file in `backend/oasis/routers/new_resource.py`
 2. Define `router = APIRouter()`
 3. Add route handlers with Pydantic models
 4. Register in `main.py`: `app.include_router(new_resource.router, prefix="/api/v1/new_resource")`
 5. Create matching API client in `src/lib/apis/new_resource/index.ts`
 
 ### Adding a Database Model
-1. Create SQLAlchemy model in `backend/open_webui/models/new_model.py` extending `Base`
+1. Create SQLAlchemy model in `backend/oasis/models/new_model.py` extending `Base`
 2. Create Pydantic schema for validation
 3. Generate migration: `alembic revision --autogenerate -m "add new_model table"`
-4. Review and edit migration in `backend/open_webui/migrations/versions/`
+4. Review and edit migration in `backend/oasis/migrations/versions/`
 5. Migration auto-runs on next app start
 
 ### Extending with Functions/Tools
 Functions are Python code snippets stored in DB and executed at runtime:
-- Stored via `backend/open_webui/models/functions.py` (Functions table)
+- Stored via `backend/oasis/models/functions.py` (Functions table)
 - Loaded dynamically by `utils/plugin.py:load_function_module_by_id()`
 - Must define specific attributes: `valves` (config), `pipes` (manifold), or call methods
 - Accessed by LLMs via OpenAI function calling protocol
 
 ### WebSocket Events
-Socket events defined in `backend/open_webui/socket/main.py`:
+Socket events defined in `backend/oasis/socket/main.py`:
 - `user-count`: Broadcast active user count
 - `usage`: Track model usage in real-time
 - Connect/disconnect handlers manage state
@@ -186,7 +186,7 @@ Socket events defined in `backend/open_webui/socket/main.py`:
 ## Common Pitfalls
 
 - **Migration order**: Peewee migrations run before Alembic (handled in `internal/db.py`)
-- **Docker volumes**: Always mount `-v open-webui:/app/backend/data` to persist database
+- **Docker volumes**: Always mount `-v oasis:/app/backend/data` to persist database
 - **Environment mismatch**: Backend runs on port 8080, frontend dev on 5173 - ensure proxy is configured
 - **Embedding model changes**: Changing `USE_EMBEDDING_MODEL` requires re-embedding all documents
 - **Socket.IO path**: WebSocket endpoint is `/ws/socket.io`, not default `/socket.io/`

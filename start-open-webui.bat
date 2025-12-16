@@ -1,6 +1,6 @@
 @echo off
-REM Start Open WebUI with Docker Compose
-echo Starting Open WebUI...
+REM Start OASIS with Docker Compose
+echo Starting OASIS...
 echo.
 
 REM Check if Docker is running
@@ -17,20 +17,20 @@ docker compose up -d
 
 REM Wait for services to be healthy
 echo.
-echo Waiting for Open WebUI to start...
+echo Waiting for OASIS to start...
 timeout /t 10 /nobreak >nul
 
 REM Check if containers are running
-docker compose ps | findstr "open-webui" >nul
+docker compose ps | findstr "oasis" >nul
 if %errorlevel% neq 0 (
-    echo Error: Failed to start Open WebUI containers.
+    echo Error: Failed to start OASIS containers.
     echo Check Docker logs for details.
     pause
     exit /b 1
 )
 
 echo.
-echo Open WebUI is starting...
+echo OASIS is starting...
 echo Opening browser in 5 seconds...
 timeout /t 5 /nobreak >nul
 
@@ -38,10 +38,10 @@ REM Open browser
 start http://localhost:3000
 
 echo.
-echo Open WebUI is now running!
+echo OASIS is now running!
 echo Access it at: http://localhost:3000
 echo.
-echo To stop Open WebUI, run: docker compose down
-echo or use the stop-open-webui.bat file
+echo To stop OASIS, run: docker compose down
+echo or use the stop-oasis.bat file
 echo.
 pause

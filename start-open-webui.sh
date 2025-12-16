@@ -22,7 +22,7 @@ if sg docker -c "docker compose up -d"; then
     sleep 10
     
     # Check if containers are running
-    if sg docker -c "docker compose ps" | grep -q "open-webui"; then
+    if sg docker -c "docker compose ps" | grep -q "oasis"; then
         echo ""
         echo "ARMORY is starting..."
         echo "Opening browser in 5 seconds..."
@@ -44,7 +44,7 @@ if sg docker -c "docker compose up -d"; then
         echo "Access it at: http://localhost:3000"
         echo ""
         echo "To stop ARMORY, run: docker compose down"
-        echo "or use the ./stop-open-webui.sh script"
+        echo "or use the ./stop-oasis.sh script"
         echo ""
     else
         echo ""

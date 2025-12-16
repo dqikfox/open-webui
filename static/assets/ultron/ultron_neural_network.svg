@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#0a0a0a"/>
+
+  <!-- Neural nodes -->
+  <g opacity="0.8">
+    <!-- Input layer -->
+    <circle cx="100" cy="100" r="8" fill="#ffd700" filter="url(#glow)"/>
+    <circle cx="100" cy="200" r="8" fill="#ffd700" filter="url(#glow)"/>
+    <circle cx="100" cy="300" r="8" fill="#ffd700" filter="url(#glow)"/>
+    <circle cx="100" cy="400" r="8" fill="#ffd700" filter="url(#glow)"/>
+    <circle cx="100" cy="500" r="8" fill="#ffd700" filter="url(#glow)"/>
+
+    <!-- Hidden layer 1 -->
+    <circle cx="300" cy="150" r="8" fill="#ff0000" filter="url(#glow)"/>
+    <circle cx="300" cy="250" r="8" fill="#ff0000" filter="url(#glow)"/>
+    <circle cx="300" cy="350" r="8" fill="#ff0000" filter="url(#glow)"/>
+    <circle cx="300" cy="450" r="8" fill="#ff0000" filter="url(#glow)"/>
+
+    <!-- Hidden layer 2 -->
+    <circle cx="500" cy="200" r="8" fill="#ffd700" filter="url(#glow)"/>
+    <circle cx="500" cy="300" r="8" fill="#ffd700" filter="url(#glow)"/>
+    <circle cx="500" cy="400" r="8" fill="#ffd700" filter="url(#glow)"/>
+
+    <!-- Output layer -->
+    <circle cx="700" cy="250" r="10" fill="#ff0000" filter="url(#glow)"/>
+    <circle cx="700" cy="350" r="10" fill="#ff0000" filter="url(#glow)"/>
+  </g>
+
+  <!-- Connections -->
+  <g opacity="0.4" stroke-width="1">
+    <!-- Input to hidden 1 -->
+    <line x1="108" y1="100" x2="292" y2="150" stroke="#ffd700"/>
+    <line x1="108" y1="200" x2="292" y2="150" stroke="#ffd700"/>
+    <line x1="108" y1="200" x2="292" y2="250" stroke="#ffd700"/>
+    <line x1="108" y1="300" x2="292" y2="250" stroke="#ffd700"/>
+    <line x1="108" y1="300" x2="292" y2="350" stroke="#ffd700"/>
+    <line x1="108" y1="400" x2="292" y2="350" stroke="#ffd700"/>
+    <line x1="108" y1="400" x2="292" y2="450" stroke="#ffd700"/>
+    <line x1="108" y1="500" x2="292" y2="450" stroke="#ffd700"/>
+
+    <!-- Hidden 1 to hidden 2 -->
+    <line x1="308" y1="150" x2="492" y2="200" stroke="#ff0000"/>
+    <line x1="308" y1="150" x2="492" y2="300" stroke="#ff0000"/>
+    <line x1="308" y1="250" x2="492" y2="200" stroke="#ff0000"/>
+    <line x1="308" y1="250" x2="492" y2="300" stroke="#ff0000"/>
+    <line x1="308" y1="250" x2="492" y2="400" stroke="#ff0000"/>
+    <line x1="308" y1="350" x2="492" y2="300" stroke="#ff0000"/>
+    <line x1="308" y1="350" x2="492" y2="400" stroke="#ff0000"/>
+    <line x1="308" y1="450" x2="492" y2="400" stroke="#ff0000"/>
+
+    <!-- Hidden 2 to output -->
+    <line x1="508" y1="200" x2="690" y2="250" stroke="#ffd700"/>
+    <line x1="508" y1="200" x2="690" y2="350" stroke="#ffd700"/>
+    <line x1="508" y1="300" x2="690" y2="250" stroke="#ffd700"/>
+    <line x1="508" y1="300" x2="690" y2="350" stroke="#ffd700"/>
+    <line x1="508" y1="400" x2="690" y2="350" stroke="#ffd700"/>
+  </g>
+
+  <!-- Labels -->
+  <text x="100" y="70" font-family="Arial, sans-serif" font-size="12" fill="#ffd700" text-anchor="middle">INPUT</text>
+  <text x="300" y="120" font-family="Arial, sans-serif" font-size="12" fill="#ff0000" text-anchor="middle">HIDDEN</text>
+  <text x="500" y="170" font-family="Arial, sans-serif" font-size="12" fill="#ffd700" text-anchor="middle">PROCESS</text>
+  <text x="700" y="220" font-family="Arial, sans-serif" font-size="12" fill="#ff0000" text-anchor="middle">OUTPUT</text>
+</svg>

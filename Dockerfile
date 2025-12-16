@@ -117,6 +117,8 @@ RUN if [ "$USE_OLLAMA" = "true" ]; then \
     apt-get install -y --no-install-recommends ffmpeg libsm6 libxext6 && \
     # install helper tools
     apt-get install -y --no-install-recommends curl jq && \
+    # ULTRON Agent dependencies
+    apt-get install -y --no-install-recommends portaudio19-dev tesseract-ocr espeak && \
     # install ollama
     curl -fsSL https://ollama.com/install.sh | sh && \
     # cleanup
@@ -128,6 +130,8 @@ RUN if [ "$USE_OLLAMA" = "true" ]; then \
     apt-get install -y --no-install-recommends gcc python3-dev && \
     # for RAG OCR
     apt-get install -y --no-install-recommends ffmpeg libsm6 libxext6 && \
+    # ULTRON Agent dependencies
+    apt-get install -y --no-install-recommends portaudio19-dev tesseract-ocr espeak && \
     # cleanup
     rm -rf /var/lib/apt/lists/*; \
     fi

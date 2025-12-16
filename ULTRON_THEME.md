@@ -1,7 +1,7 @@
 # 🤖 ULTRON THEME - Futuristic AI Interface
 
 ## Overview
-The Ultron Theme transforms Open WebUI into a dark, futuristic interface inspired by advanced AI systems with:
+The Ultron Theme transforms OASIS into a dark, futuristic interface inspired by advanced AI systems with:
 - **Dark Ultron Colors**: Deep blacks with red accents
 - **Glowing Red Circuits**: Animated circuit patterns and particle effects
 - **Futuristic Aesthetics**: Cyberpunk-inspired design elements
@@ -174,7 +174,7 @@ for (let i = 0; i < 40; i++) {  // Changed from 20
 - Canvas animations using HTML5 Canvas API
 
 ## License
-Same as Open WebUI - MIT License
+Same as OASIS - MIT License
 
 ---
 

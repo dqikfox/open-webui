@@ -1,4 +1,4 @@
-# Open WebUI - Technology Stack
+# OASIS - Technology Stack
 
 ## Programming Languages
 
@@ -241,8 +241,8 @@ npm run cy:open          # Open Cypress
 
 ### Backend
 ```bash
-pip install open-webui   # Install package
-open-webui serve         # Start server
+pip install oasis   # Install package
+oasis serve         # Start server
 python -m pytest         # Run tests
 black .                  # Format code
 pylint backend/          # Lint code

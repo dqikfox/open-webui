@@ -27,7 +27,7 @@ log.setLevel(SRC_LOG_LEVELS["RAG"])
 
 class MilvusClient(VectorDBBase):
     def __init__(self):
-        self.collection_prefix = "open_webui"
+        self.collection_prefix = "oasis"
         if MILVUS_TOKEN is None:
             self.client = Client(uri=MILVUS_URI, db_name=MILVUS_DB)
         else:

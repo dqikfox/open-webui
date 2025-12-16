@@ -17,7 +17,7 @@ def version_callback(value: bool):
     if value:
         from open_webui.env import VERSION
 
-        typer.echo(f"Open WebUI version: {VERSION}")
+        typer.echo(f"OASIS version: {VERSION}")
         raise typer.Exit()
 
 
@@ -76,7 +76,7 @@ def serve(
     from open_webui.env import UVICORN_WORKERS  # Import the workers setting
 
     uvicorn.run(
-        "open_webui.main:app",
+        "oasis.main:app",
         host=host,
         port=port,
         forwarded_allow_ips="*",
@@ -91,7 +91,7 @@ def dev(
     reload: bool = True,
 ):
     uvicorn.run(
-        "open_webui.main:app",
+        "oasis.main:app",
         host=host,
         port=port,
         reload=reload,

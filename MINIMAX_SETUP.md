@@ -4,7 +4,7 @@
 Using MiniMax AI to generate HD Ultron-themed images for the interface.
 
 ## API Configuration
-- **API Key**: Configured in `backend/open_webui/utils/minimax_image_gen.py`
+- **API Key**: Configured in `backend/oasis/utils/minimax_image_gen.py`
 - **Group ID**: 1939265390257378238
 - **Model**: text_to_image_v2
 - **Resolution**: 1024x1024 (configurable)
@@ -45,19 +45,19 @@ Using MiniMax AI to generate HD Ultron-themed images for the interface.
 
 ### Method 1: Run Python Script
 ```bash
-cd /home/ultro/projects/openui/open-webui
+cd /home/ultro/projects/openui/oasis
 python3 scripts/generate_ultron_assets.py
 ```
 
 ### Method 2: Use Python Module
 ```python
-from backend.open_webui.utils.minimax_image_gen import generate_all_ultron_assets
+from backend.oasis.utils.minimax_image_gen import generate_all_ultron_assets
 
 # Generate all assets
 results = generate_all_ultron_assets()
 
 # Generate single image
-from backend.open_webui.utils.minimax_image_gen import generate_ultron_image
+from backend.oasis.utils.minimax_image_gen import generate_ultron_image
 
 image_url = generate_ultron_image(
     prompt="futuristic Ultron interface element",
@@ -69,7 +69,7 @@ image_url = generate_ultron_image(
 
 ### Method 3: Custom Prompts
 ```python
-from backend.open_webui.utils.minimax_image_gen import generate_ultron_image
+from backend.oasis.utils.minimax_image_gen import generate_ultron_image
 
 # Generate custom image
 generate_ultron_image(
@@ -210,7 +210,7 @@ Images are static assets, cached by browser automatically.
 
 ```bash
 # Navigate to project
-cd /home/ultro/projects/openui/open-webui
+cd /home/ultro/projects/openui/oasis
 
 # Create output directory
 mkdir -p static/assets/ultron

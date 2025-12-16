@@ -181,7 +181,7 @@
 					<img
 						id="logo"
 						crossorigin="anonymous"
-						src="{WEBUI_BASE_URL}/static/favicon.png"
+						src="/static/assets/ultron/ultron_logo.svg"
 						class=" w-6 rounded-full"
 						alt=""
 					/>
@@ -219,21 +219,21 @@
 							<div class="mb-1">
 								<div class=" text-2xl font-medium">
 									{#if $config?.onboarding ?? false}
-										{$i18n.t(`Get started with {{WEBUI_NAME}}`, { WEBUI_NAME: $WEBUI_NAME })}
+										{$i18n.t(`Enter the OASIS`, { WEBUI_NAME: $WEBUI_NAME })}
 									{:else if mode === 'ldap'}
-										{$i18n.t(`Sign in to {{WEBUI_NAME}} with LDAP`, { WEBUI_NAME: $WEBUI_NAME })}
+										{$i18n.t(`Access OASIS with LDAP`, { WEBUI_NAME: $WEBUI_NAME })}
 									{:else if mode === 'signin'}
-										{$i18n.t(`Sign in to {{WEBUI_NAME}}`, { WEBUI_NAME: $WEBUI_NAME })}
+										{$i18n.t(`Enter OASIS`, { WEBUI_NAME: $WEBUI_NAME })}
 									{:else}
-										{$i18n.t(`Sign up to {{WEBUI_NAME}}`, { WEBUI_NAME: $WEBUI_NAME })}
+										{$i18n.t(`Join OASIS`, { WEBUI_NAME: $WEBUI_NAME })}
 									{/if}
 								</div>
 
 								{#if $config?.onboarding ?? false}
 									<div class="mt-1 text-xs font-medium text-gray-600 dark:text-gray-500">
-										ⓘ {$WEBUI_NAME}
+										🌟 OASIS
 										{$i18n.t(
-											'does not make any external connections, and your data stays securely on your locally hosted server.'
+											'operates entirely offline with multi-agent AI, advanced workflows, and enterprise-grade security.'
 										)}
 									</div>
 								{/if}
@@ -316,7 +316,7 @@
 											class="bg-gray-700/5 hover:bg-gray-700/10 dark:bg-gray-100/5 dark:hover:bg-gray-100/10 dark:text-gray-300 dark:hover:text-white transition w-full rounded-full font-medium text-sm py-2.5"
 											type="submit"
 										>
-											{$i18n.t('Authenticate')}
+											{$i18n.t('Access OASIS')}
 										</button>
 									{:else}
 										<button
@@ -324,17 +324,17 @@
 											type="submit"
 										>
 											{mode === 'signin'
-												? $i18n.t('Sign in')
+												? $i18n.t('Enter OASIS')
 												: ($config?.onboarding ?? false)
-													? $i18n.t('Create Admin Account')
-													: $i18n.t('Create Account')}
+													? $i18n.t('Initialize OASIS')
+													: $i18n.t('Join OASIS')}
 										</button>
 
 										{#if $config?.features.enable_signup && !($config?.onboarding ?? false)}
 											<div class=" mt-4 text-sm text-center">
 												{mode === 'signin'
-													? $i18n.t("Don't have an account?")
-													: $i18n.t('Already have an account?')}
+													? $i18n.t("New to OASIS?")
+													: $i18n.t('Already in OASIS?')}
 
 												<button
 													class=" font-medium underline"
@@ -347,7 +347,7 @@
 														}
 													}}
 												>
-													{mode === 'signin' ? $i18n.t('Sign up') : $i18n.t('Sign in')}
+													{mode === 'signin' ? $i18n.t('Join Now') : $i18n.t('Enter')}
 												</button>
 											</div>
 										{/if}

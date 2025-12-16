@@ -1,4 +1,4 @@
-# Open WebUI - Development Guidelines
+# OASIS - Development Guidelines
 
 ## Code Quality Standards
 
@@ -14,8 +14,8 @@
   from fastapi import Request, HTTPException
   from pydantic import BaseModel
   
-  from open_webui.models.users import Users
-  from open_webui.config import CACHE_DIR
+  from oasis.models.users import Users
+  from oasis.config import CACHE_DIR
   ```
 
 ### Naming Conventions
@@ -229,7 +229,7 @@ Structured logging with module-level loggers:
 
 ```python
 import logging
-from open_webui.env import SRC_LOG_LEVELS
+from oasis.env import SRC_LOG_LEVELS
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["RAG"])

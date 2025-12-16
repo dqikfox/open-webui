@@ -1,13 +1,13 @@
-# Open WebUI - Project Structure
+# OASIS - Project Structure
 
 ## Architecture Overview
-Open WebUI follows a full-stack architecture with a Python FastAPI backend and a Svelte/SvelteKit frontend. The project is designed as a monorepo containing both frontend and backend code with clear separation of concerns.
+OASIS follows a full-stack architecture with a Python FastAPI backend and a Svelte/SvelteKit frontend. The project is designed as a monorepo containing both frontend and backend code with clear separation of concerns.
 
 ## Directory Structure
 
 ### Root Level
 ```
-open-webui/
+oasis/
 ├── backend/           # Python FastAPI backend application
 ├── src/              # Svelte frontend application
 ├── static/           # Static assets (images, fonts, themes)
@@ -23,7 +23,7 @@ Python-based FastAPI application handling API, database, and business logic.
 
 ```
 backend/
-├── open_webui/
+├── oasis/
 │   ├── routers/          # API route handlers (REST endpoints)
 │   ├── models/           # Database models (SQLAlchemy/Peewee)
 │   ├── utils/            # Utility functions and helpers

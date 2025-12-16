@@ -427,7 +427,7 @@
 				'about us',
 				'aboutapp',
 				'aboutme',
-				'aboutopenwebui',
+				'aboutoasis',
 				'aboutpage',
 				'aboutus',
 				'check for updates',

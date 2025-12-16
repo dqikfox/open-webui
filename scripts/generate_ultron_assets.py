@@ -6,7 +6,7 @@ import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from backend.open_webui.utils.minimax_image_gen import generate_all_ultron_assets
+from backend.oasis.utils.minimax_image_gen import generate_all_ultron_assets
 
 if __name__ == "__main__":
     print("🤖 Generating Ultron HD Assets with MiniMax AI...")

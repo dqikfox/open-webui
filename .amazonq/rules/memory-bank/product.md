@@ -1,7 +1,7 @@
-# Open WebUI - Product Overview
+# OASIS - Product Overview
 
 ## Purpose
-Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform designed to operate entirely offline. It serves as a powerful AI deployment solution that supports various LLM runners like Ollama and OpenAI-compatible APIs, with a built-in inference engine for Retrieval Augmented Generation (RAG).
+OASIS is an extensible, feature-rich, and user-friendly self-hosted AI platform designed to operate entirely offline. It serves as a powerful AI deployment solution that supports various LLM runners like Ollama and OpenAI-compatible APIs, with a built-in inference engine for Retrieval Augmented Generation (RAG).
 
 ## Value Proposition
 - **Self-hosted & Offline**: Complete control over AI infrastructure with no external dependencies required
@@ -64,7 +64,7 @@ Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI plat
 
 ## Technical Highlights
 - **Version**: 0.6.15
-- **License**: Open WebUI License (revised BSD-3-Clause with branding preservation)
+- **License**: OASIS License (revised BSD-3-Clause with branding preservation)
 - **Deployment**: Docker, Kubernetes (kubectl, kustomize, helm), Python pip
 - **Platform Support**: Linux, Windows, macOS with GPU acceleration support (CUDA)
 - **Community**: Active Discord community and GitHub sponsorship program

@@ -79,7 +79,7 @@ npm run build
 
 ### 2. Start the Server
 ```bash
-./start-open-webui.sh
+./start-oasis.sh
 ```
 
 ### 3. View the Theme
@@ -162,7 +162,7 @@ for (let i = 0; i < 100; i++) {  // More particles
 
 ## File Structure
 ```
-open-webui/
+oasis/
 ├── static/
 │   └── themes/
 │       └── ultron.css                    # Main theme stylesheet

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0a0a;stop-opacity:0.95" />
+      <stop offset="50%" style="stop-color:#2a1515;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#1a0a0a;stop-opacity:0.95" />
+    </linearGradient>
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="spotlight">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="400" fill="url(#heroGrad)"/>
+
+  <!-- Spotlight effect -->
+  <ellipse cx="600" cy="200" rx="400" ry="300" fill="url(#spotlight)"/>
+
+  <!-- Large ULTRON text -->
+  <text x="600" y="220" font-family="Arial, sans-serif" font-size="120" font-weight="bold"
+        fill="#ffd700" text-anchor="middle" filter="url(#strongGlow)">ULTRON</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="270" font-family="Arial, sans-serif" font-size="24"
+        fill="#ff0000" text-anchor="middle" opacity="0.8">ADVANCED AI SYSTEM</text>
+
+  <!-- Tactical border -->
+  <rect x="5" y="5" width="1190" height="390" fill="none" stroke="#ffd700" stroke-width="2" opacity="0.5"/>
+
+  <!-- Corner accents -->
+  <g stroke="#ffd700" stroke-width="3" fill="none" filter="url(#strongGlow)">
+    <path d="M 20 20 L 20 80 M 20 20 L 80 20"/>
+    <path d="M 1180 20 L 1180 80 M 1180 20 L 1120 20"/>
+    <path d="M 20 380 L 20 320 M 20 380 L 80 380"/>
+    <path d="M 1180 380 L 1180 320 M 1180 380 L 1120 380"/>
+  </g>
+
+  <!-- Circuit decorations -->
+  <g opacity="0.5">
+    <line x1="100" y1="350" x2="300" y2="350" stroke="#ffd700" stroke-width="2"/>
+    <line x1="900" y1="350" x2="1100" y2="350" stroke="#ffd700" stroke-width="2"/>
+    <circle cx="300" cy="350" r="4" fill="#ff0000"/>
+    <circle cx="900" cy="350" r="4" fill="#ff0000"/>
+  </g>
+</svg>

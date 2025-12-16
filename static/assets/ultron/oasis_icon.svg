@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <radialGradient id="iconGrad" cx="50%" cy="30%">
+      <stop offset="0%" stop-color="#ff3333"/>
+      <stop offset="100%" stop-color="#cc0000"/>
+    </radialGradient>
+    <filter id="iconGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="128" cy="128" r="120" fill="url(#iconGrad)" stroke="#ff0000" stroke-width="6" filter="url(#iconGlow)"/>
+  
+  <!-- Neural network pattern -->
+  <g stroke="#ff6666" stroke-width="2" fill="none" opacity="0.4">
+    <circle cx="128" cy="128" r="80"/>
+    <circle cx="128" cy="128" r="60"/>
+    <circle cx="128" cy="128" r="40"/>
+  </g>
+  
+  <!-- Center dot -->
+  <circle cx="128" cy="128" r="8" fill="#ffffff" filter="url(#iconGlow)"/>
+  
+  <!-- Connection lines -->
+  <g stroke="#ffffff" stroke-width="1.5" opacity="0.6">
+    <line x1="128" y1="48" x2="128" y2="108"/>
+    <line x1="128" y1="148" x2="128" y2="208"/>
+    <line x1="48" y1="128" x2="108" y2="128"/>
+    <line x1="148" y1="128" x2="208" y2="128"/>
+    <line x1="70" y1="70" x2="110" y2="110"/>
+    <line x1="146" y1="146" x2="186" y2="186"/>
+    <line x1="186" y1="70" x2="146" y2="110"/>
+    <line x1="110" y1="146" x2="70" y2="186"/>
+  </g>
+  
+  <!-- OASIS text -->
+  <text x="128" y="145" text-anchor="middle" fill="white" font-family="Orbitron,Arial" font-size="48" font-weight="900" filter="url(#iconGlow)">O</text>
+</svg>

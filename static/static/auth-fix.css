@@ -1,0 +1,34 @@
+/* EMERGENCY AUTH FORM FIX */
+* {
+  pointer-events: auto !important;
+}
+
+input[type="text"],
+input[type="email"], 
+input[type="password"],
+textarea,
+select,
+button {
+  pointer-events: auto !important;
+  z-index: 99999 !important;
+  position: relative !important;
+  background: rgba(10, 10, 10, 0.9) !important;
+  border: 2px solid #ff0000 !important;
+  color: #fff !important;
+  padding: 0.75rem !important;
+}
+
+form {
+  pointer-events: auto !important;
+  z-index: 99998 !important;
+}
+
+.w-full.h-screen {
+  pointer-events: none !important;
+}
+
+.w-full.h-screen form,
+.w-full.h-screen input,
+.w-full.h-screen button {
+  pointer-events: auto !important;
+}

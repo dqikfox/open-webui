@@ -1,0 +1,75 @@
+FROM nvcr.io/nvidia/cuda-dl-base:25.11-cuda13.0-devel-ubuntu24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+ENV CUDA_HOME=/usr/local/cuda
+ENV PATH=${CUDA_HOME}/bin:${PATH}
+ENV LD_LIBRARY_PATH=${CUDA_HOME}/lib64:${LD_LIBRARY_PATH}
+
+# Install Python and dependencies
+RUN apt-get update && apt-get install -y \
+    python3.11 \
+    python3.11-dev \
+    python3-pip \
+    git \
+    curl \
+    wget \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set Python 3.11 as default
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 && \
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
+
+# Upgrade pip
+RUN python -m pip install --upgrade pip setuptools wheel
+
+# Install PyTorch with CUDA 13.0 support
+RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu130
+
+# Install CUDA-accelerated packages
+RUN pip install \
+    cupy-cuda13x \
+    nvidia-cuda-runtime-cu13 \
+    nvidia-cudnn-cu13 \
+    nvidia-cublas-cu13 \
+    nvidia-cufft-cu13 \
+    nvidia-curand-cu13 \
+    nvidia-cusolver-cu13 \
+    nvidia-cusparse-cu13
+
+# Install ML/AI frameworks with GPU support
+RUN pip install \
+    tensorflow[and-cuda] \
+    jax[cuda13_pip] \
+    transformers[torch] \
+    accelerate \
+    bitsandbytes \
+    xformers \
+    flash-attn --no-build-isolation
+
+# Install vector DB with GPU support
+RUN pip install \
+    chromadb \
+    qdrant-client \
+    pymilvus \
+    faiss-gpu
+
+# Install OASIS
+WORKDIR /app
+COPY backend/requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+
+COPY backend /app/backend
+COPY src /app/src
+COPY static /app/static
+
+# Install OASIS package
+RUN pip install -e /app/backend
+
+# Create data directory
+RUN mkdir -p /app/backend/data
+
+EXPOSE 8080
+
+CMD ["python", "-m", "open_webui.main"]

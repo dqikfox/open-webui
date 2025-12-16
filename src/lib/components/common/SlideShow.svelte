@@ -2,10 +2,10 @@
 	import { onMount } from 'svelte';
 
 	export let imageUrls = [
-		'/assets/images/adam.jpg',
-		'/assets/images/galaxy.jpg',
-		'/assets/images/earth.jpg',
-		'/assets/images/space.jpg'
+		'/assets/images/oasis_network.svg',
+		'/assets/images/oasis_city.svg',
+		'/assets/images/oasis_city.svg',
+		'/assets/images/oasis_network.svg'
 	];
 	export let duration = 5000;
 	let selectedImageIdx = 0;
