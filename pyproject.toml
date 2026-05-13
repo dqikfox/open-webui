@@ -50,7 +50,7 @@ dependencies = [
     "google-generativeai==0.8.5",
     "tiktoken",
 
-    "langchain==0.3.24",
+    "langchain==0.3.30",
     "langchain-community==0.3.23",
 
     "fake-useragent==2.1.0",
