@@ -18,7 +18,7 @@
   <!-- Bottom border with glow -->
   <line x1="0" y1="198" x2="1920" y2="198" stroke="#ffd700" stroke-width="2" filter="url(#glow)"/>
 
-  <!-- Ultron corner brackets -->
+  <!-- Atlas corner brackets -->
   <g stroke="#ffd700" stroke-width="2" fill="none" filter="url(#glow)">
     <path d="M 20 20 L 20 60 M 20 20 L 60 20"/>
     <path d="M 1900 20 L 1900 60 M 1900 20 L 1860 20"/>

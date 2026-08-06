@@ -30,8 +30,8 @@
 		const _chat = chat.chat;
 		console.log('share', _chat);
 
-		toast.success($i18n.t('Redirecting you to OASIS Community'));
-		const url = 'https://oasis.com';
+		toast.success($i18n.t('Redirecting you to ATLAS Community'));
+		const url = 'https://atlas.com';
 		// const url = 'http://localhost:5173';
 
 		const tab = await window.open(`${url}/chats/upload`, '_blank');
@@ -143,7 +143,7 @@
 										show = false;
 									}}
 								>
-									{$i18n.t('Share to OASIS Community')}
+									{$i18n.t('Share to ATLAS Community')}
 								</button>
 							{/if}
 

@@ -181,7 +181,7 @@
 					<img
 						id="logo"
 						crossorigin="anonymous"
-						src="/static/assets/ultron/ultron_logo.svg"
+						src="/static/assets/atlas/atlas_logo.svg"
 						class=" w-6 rounded-full"
 						alt=""
 					/>
@@ -219,19 +219,19 @@
 							<div class="mb-1">
 								<div class=" text-2xl font-medium">
 									{#if $config?.onboarding ?? false}
-										{$i18n.t(`Enter the OASIS`, { WEBUI_NAME: $WEBUI_NAME })}
+										{$i18n.t(`Enter the ATLAS`, { WEBUI_NAME: $WEBUI_NAME })}
 									{:else if mode === 'ldap'}
-										{$i18n.t(`Access OASIS with LDAP`, { WEBUI_NAME: $WEBUI_NAME })}
+										{$i18n.t(`Access ATLAS with LDAP`, { WEBUI_NAME: $WEBUI_NAME })}
 									{:else if mode === 'signin'}
-										{$i18n.t(`Enter OASIS`, { WEBUI_NAME: $WEBUI_NAME })}
+										{$i18n.t(`Enter ATLAS`, { WEBUI_NAME: $WEBUI_NAME })}
 									{:else}
-										{$i18n.t(`Join OASIS`, { WEBUI_NAME: $WEBUI_NAME })}
+										{$i18n.t(`Join ATLAS`, { WEBUI_NAME: $WEBUI_NAME })}
 									{/if}
 								</div>
 
 								{#if $config?.onboarding ?? false}
 									<div class="mt-1 text-xs font-medium text-gray-600 dark:text-gray-500">
-										🌟 OASIS
+										🌟 ATLAS
 										{$i18n.t(
 											'operates entirely offline with multi-agent AI, advanced workflows, and enterprise-grade security.'
 										)}
@@ -316,7 +316,7 @@
 											class="bg-gray-700/5 hover:bg-gray-700/10 dark:bg-gray-100/5 dark:hover:bg-gray-100/10 dark:text-gray-300 dark:hover:text-white transition w-full rounded-full font-medium text-sm py-2.5"
 											type="submit"
 										>
-											{$i18n.t('Access OASIS')}
+											{$i18n.t('Access ATLAS')}
 										</button>
 									{:else}
 										<button
@@ -324,17 +324,17 @@
 											type="submit"
 										>
 											{mode === 'signin'
-												? $i18n.t('Enter OASIS')
+												? $i18n.t('Enter ATLAS')
 												: ($config?.onboarding ?? false)
-													? $i18n.t('Initialize OASIS')
-													: $i18n.t('Join OASIS')}
+													? $i18n.t('Initialize ATLAS')
+													: $i18n.t('Join ATLAS')}
 										</button>
 
 										{#if $config?.features.enable_signup && !($config?.onboarding ?? false)}
 											<div class=" mt-4 text-sm text-center">
 												{mode === 'signin'
-													? $i18n.t("New to OASIS?")
-													: $i18n.t('Already in OASIS?')}
+													? $i18n.t("New to ATLAS?")
+													: $i18n.t('Already in ATLAS?')}
 
 												<button
 													class=" font-medium underline"

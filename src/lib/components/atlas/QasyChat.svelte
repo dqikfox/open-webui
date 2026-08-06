@@ -12,7 +12,7 @@
     messages = [...messages, { role: 'user', content: command }];
     
     try {
-      const res = await fetch('/api/oasis/execute', {
+      const res = await fetch('/api/atlas/execute', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ command })
@@ -29,13 +29,13 @@
   }
 
   onMount(async () => {
-    const res = await fetch('/api/oasis/memory');
+    const res = await fetch('/api/atlas/memory');
     const data = await res.json();
     messages = data.messages || [];
   });
 </script>
 
-<div class="qasy-chat ultron-glow">
+<div class="qasy-chat atlas-glow">
   <div class="messages">
     {#each messages as msg}
       <div class="message {msg.role}">
@@ -48,11 +48,11 @@
   <form on:submit|preventDefault={executeCommand}>
     <input
       bind:value={command}
-      placeholder="Enter OASIS command..."
+      placeholder="Enter ATLAS command..."
       disabled={loading}
-      class="ultron-input"
+      class="atlas-input"
     />
-    <button type="submit" disabled={loading} class="ultron-button">
+    <button type="submit" disabled={loading} class="atlas-button">
       {loading ? 'Processing...' : 'Execute'}
     </button>
   </form>

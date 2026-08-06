@@ -4,14 +4,14 @@
   let suggestions = [];
   let analysis = null;
   let loading = false;
-  let context = 'OASIS OASIS System';
+  let context = 'ATLAS ATLAS System';
   let selectedFile = '';
   let fileContent = '';
   let featureRequest = '';
   let implementation = null;
   let scanDirs = [
-    '/home/ultro/projects/openui/oasis/backend/open_webui/qasy',
-    '/home/ultro/projects/openui/oasis/src/lib/components/qasy'
+    '/home/ultro/projects/openui/atlas/backend/open_webui/qasy',
+    '/home/ultro/projects/openui/atlas/src/lib/components/qasy'
   ];
   let improvements = [];
   let schedulerStatus = null;
@@ -19,7 +19,7 @@
   async function getSuggestions() {
     loading = true;
     try {
-      const res = await fetch('/api/oasis/autogen/suggest', {
+      const res = await fetch('/api/atlas/autogen/suggest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ context })
@@ -36,7 +36,7 @@
     if (!selectedFile || !fileContent) return;
     loading = true;
     try {
-      const res = await fetch('/api/oasis/autogen/analyze', {
+      const res = await fetch('/api/atlas/autogen/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ file_path: selectedFile, content: fileContent })
@@ -52,7 +52,7 @@
     if (!featureRequest) return;
     loading = true;
     try {
-      const res = await fetch('/api/oasis/autogen/implement', {
+      const res = await fetch('/api/atlas/autogen/implement', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ feature_request: featureRequest, file_context: {} })
@@ -67,7 +67,7 @@
   async function runContinuous() {
     loading = true;
     try {
-      const res = await fetch('/api/oasis/autogen/continuous', {
+      const res = await fetch('/api/atlas/autogen/continuous', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ scan_dirs: scanDirs })
@@ -83,7 +83,7 @@
   async function startScheduler() {
     loading = true;
     try {
-      const res = await fetch('/api/oasis/autogen/scheduler/start', {
+      const res = await fetch('/api/atlas/autogen/scheduler/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ scan_dirs: scanDirs })
@@ -98,7 +98,7 @@
   async function stopScheduler() {
     loading = true;
     try {
-      const res = await fetch('/api/oasis/autogen/scheduler/stop', {
+      const res = await fetch('/api/atlas/autogen/scheduler/stop', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       });
@@ -111,7 +111,7 @@
 
   async function getSchedulerStatus() {
     try {
-      const res = await fetch('/api/oasis/autogen/scheduler/status');
+      const res = await fetch('/api/atlas/autogen/scheduler/status');
       schedulerStatus = await res.json();
     } catch (e) {
       console.error('Scheduler status error:', e);
@@ -124,8 +124,8 @@
   });
 </script>
 
-<div class="autogen-panel ultron-card">
-  <h2 class="ultron-text-glow">AutoGen Studio</h2>
+<div class="autogen-panel atlas-card">
+  <h2 class="atlas-text-glow">AutoGen Studio</h2>
   
   <div class="tabs">
     <button on:click={() => getSuggestions()}>💡 Suggestions</button>
@@ -135,18 +135,18 @@
   </div>
 
   {#if loading}
-    <div class="loading ultron-pulse">Processing...</div>
+    <div class="loading atlas-pulse">Processing...</div>
   {/if}
 
   <div class="section">
     <h3>Enhancement Suggestions</h3>
-    <input bind:value={context} placeholder="Context" class="ultron-input" />
-    <button on:click={getSuggestions} class="ultron-button">Get Suggestions</button>
+    <input bind:value={context} placeholder="Context" class="atlas-input" />
+    <button on:click={getSuggestions} class="atlas-button">Get Suggestions</button>
     
     {#if suggestions.length > 0}
       <div class="suggestions">
         {#each suggestions as s}
-          <div class="suggestion-card ultron-card-hover">
+          <div class="suggestion-card atlas-card-hover">
             <h4>{s.title}</h4>
             <p>{s.description}</p>
             <span class="priority priority-{s.priority?.toLowerCase()}">{s.priority}</span>
@@ -159,12 +159,12 @@
 
   <div class="section">
     <h3>Code Analysis</h3>
-    <input bind:value={selectedFile} placeholder="File path" class="ultron-input" />
-    <textarea bind:value={fileContent} placeholder="Code content" class="ultron-input" rows="5"></textarea>
-    <button on:click={analyzeCode} class="ultron-button">Analyze</button>
+    <input bind:value={selectedFile} placeholder="File path" class="atlas-input" />
+    <textarea bind:value={fileContent} placeholder="Code content" class="atlas-input" rows="5"></textarea>
+    <button on:click={analyzeCode} class="atlas-button">Analyze</button>
     
     {#if analysis}
-      <div class="analysis ultron-card-hover">
+      <div class="analysis atlas-card-hover">
         <pre>{JSON.stringify(analysis, null, 2)}</pre>
       </div>
     {/if}
@@ -172,11 +172,11 @@
 
   <div class="section">
     <h3>Auto-Implement Feature</h3>
-    <textarea bind:value={featureRequest} placeholder="Feature request" class="ultron-input" rows="3"></textarea>
-    <button on:click={implementFeature} class="ultron-button">Implement</button>
+    <textarea bind:value={featureRequest} placeholder="Feature request" class="atlas-input" rows="3"></textarea>
+    <button on:click={implementFeature} class="atlas-button">Implement</button>
     
     {#if implementation}
-      <div class="implementation ultron-card-hover">
+      <div class="implementation atlas-card-hover">
         {#if implementation.design}
           <div class="phase">
             <h4>🏗️ Architecture</h4>
@@ -202,13 +202,13 @@
   <div class="section">
     <h3>Continuous Improvement</h3>
     <div class="controls">
-      <button on:click={runContinuous} class="ultron-button">Run Scan</button>
-      <button on:click={startScheduler} class="ultron-button">Start Auto-Scan</button>
-      <button on:click={stopScheduler} class="ultron-button">Stop Auto-Scan</button>
-      <button on:click={getSchedulerStatus} class="ultron-button">Status</button>
+      <button on:click={runContinuous} class="atlas-button">Run Scan</button>
+      <button on:click={startScheduler} class="atlas-button">Start Auto-Scan</button>
+      <button on:click={stopScheduler} class="atlas-button">Stop Auto-Scan</button>
+      <button on:click={getSchedulerStatus} class="atlas-button">Status</button>
     </div>
     {#if schedulerStatus}
-      <div class="scheduler-status ultron-card-hover">
+      <div class="scheduler-status atlas-card-hover">
         <p>Running: {schedulerStatus.running ? '✅' : '❌'}</p>
         <p>Interval: {schedulerStatus.interval_minutes} minutes</p>
         <p>Last Run: {schedulerStatus.last_run || 'Never'}</p>
@@ -218,13 +218,13 @@
     
     {#if improvements.length > 0}
       <div class="improvements">
-        <div class="summary ultron-card-hover">
+        <div class="summary atlas-card-hover">
           <h4>Summary</h4>
           <p>{improvements[0]?.summary || 'Analysis complete'}</p>
         </div>
         <p>Found {improvements.length} improvements</p>
         {#each improvements as imp}
-          <div class="improvement-card ultron-card-hover">
+          <div class="improvement-card atlas-card-hover">
             <h4>{imp.file}</h4>
             <p>{imp.analysis?.substring(0, 200)}...</p>
             {#if imp.reviews}

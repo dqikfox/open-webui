@@ -34,7 +34,7 @@
 						<br class=" " />
 						<a
 							class=" font-semibold underline"
-							href="https://github.com/oasis/oasis#how-to-install-"
+							href="https://github.com/atlas/atlas#how-to-install-"
 							target="_blank">{$i18n.t('See readme.md for instructions')}</a
 						>
 						{$i18n.t('or')}

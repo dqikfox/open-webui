@@ -380,24 +380,24 @@ svg:hover, i:hover, [class*="icon"]:hover {
 }
 
 /* Utility Classes */
-.ultron-glow {
+.atlas-glow {
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.4);
 }
 
-.ultron-pulse {
-  animation: ultron-pulse 2s ease-in-out infinite;
+.atlas-pulse {
+  animation: atlas-pulse 2s ease-in-out infinite;
 }
 
-@keyframes ultron-pulse {
+@keyframes atlas-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.8; transform: scale(1.05); }
 }
 
-.ultron-scan {
-  animation: ultron-scan 3s linear infinite;
+.atlas-scan {
+  animation: atlas-scan 3s linear infinite;
 }
 
-@keyframes ultron-scan {
+@keyframes atlas-scan {
   0% { background-position: 0% 0%; }
   100% { background-position: 100% 100%; }
 }

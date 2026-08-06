@@ -92,7 +92,7 @@
 						>
 							<div class="flex font-medium text-black dark:text-gray-100 line-clamp-1">
 								<img
-									src={model?.info?.meta?.profile_image_url ?? '/static/assets/ultron/ultron_logo.svg'}
+									src={model?.info?.meta?.profile_image_url ?? '/static/assets/atlas/atlas_logo.svg'}
 									alt={model?.name ?? model.id}
 									class="rounded-full size-6 items-center mr-2"
 								/>

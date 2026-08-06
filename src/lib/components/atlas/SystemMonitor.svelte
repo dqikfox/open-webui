@@ -23,7 +23,7 @@
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000);
       
-      const res = await fetch('/api/oasis/system/stats', {
+      const res = await fetch('/api/atlas/system/stats', {
         signal: controller.signal
       });
       clearTimeout(timeoutId);
@@ -42,7 +42,7 @@
 
   async function loadProcesses() {
     try {
-      const res = await fetch('/api/oasis/system/processes');
+      const res = await fetch('/api/atlas/system/processes');
       if (res.ok) {
         processes = await res.json();
       }
@@ -99,7 +99,7 @@
         <input type="checkbox" bind:checked={autoRefresh} />
         Auto Refresh (5s)
       </label>
-      <button class="refresh-btn ultron-button" on:click={refreshData} disabled={loading}>
+      <button class="refresh-btn atlas-button" on:click={refreshData} disabled={loading}>
         {loading ? '⏳' : '🔄'} Refresh
       </button>
     </div>

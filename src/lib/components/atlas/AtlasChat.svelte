@@ -17,7 +17,7 @@
     loading = true;
 
     try {
-      const res = await fetch('/api/oasis/ollama/chat', {
+      const res = await fetch('/api/atlas/ollama/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -34,7 +34,7 @@
       }
     } catch (e) {
       console.error('Chat error:', e);
-      messages = [...messages, { role: 'assistant', content: 'Error: Could not connect to OASIS' }];
+      messages = [...messages, { role: 'assistant', content: 'Error: Could not connect to ATLAS' }];
     }
     
     loading = false;
@@ -48,10 +48,10 @@
   }
 </script>
 
-<div class="oasis-chat oasis-container">
+<div class="atlas-chat atlas-container">
   <div class="chat-header">
-    <h2 class="oasis-text-glow">💬 OASIS Chat</h2>
-    <select bind:value={selectedModel} class="model-selector oasis-input">
+    <h2 class="atlas-text-glow">💬 ATLAS Chat</h2>
+    <select bind:value={selectedModel} class="model-selector atlas-input">
       <option value="llama3">Llama 3</option>
       <option value="qwen2.5">Qwen 2.5</option>
       <option value="mistral">Mistral</option>
@@ -69,8 +69,8 @@
     
     {#if loading}
       <div class="message message-assistant">
-        <div class="message-content oasis-pulse">
-          🤖 OASIS is thinking...
+        <div class="message-content atlas-pulse">
+          🤖 ATLAS is thinking...
         </div>
       </div>
     {/if}
@@ -80,14 +80,14 @@
     <textarea
       bind:value={input}
       on:keypress={handleKeyPress}
-      placeholder="Ask OASIS anything..."
-      class="chat-input oasis-input"
+      placeholder="Ask ATLAS anything..."
+      class="chat-input atlas-input"
       rows="3"
       disabled={loading}
     ></textarea>
     <button 
       on:click={sendMessage} 
-      class="send-button oasis-button"
+      class="send-button atlas-button"
       disabled={loading || !input.trim()}
     >
       {loading ? '⏳' : '🚀'} Send
@@ -96,7 +96,7 @@
 </div>
 
 <style>
-  .oasis-chat {
+  .atlas-chat {
     max-width: 800px;
     margin: 2rem auto;
     height: 600px;
@@ -109,7 +109,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    border-bottom: 2px solid var(--oasis-primary);
+    border-bottom: 2px solid var(--atlas-primary);
   }
 
   .chat-header h2 {
@@ -134,19 +134,19 @@
     max-width: 80%;
     padding: 1rem;
     border-radius: 10px;
-    border: 1px solid var(--oasis-primary);
+    border: 1px solid var(--atlas-primary);
   }
 
   .message-user {
     align-self: flex-end;
     background: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(255, 0, 0, 0.1) 100%);
-    border-color: var(--oasis-secondary);
+    border-color: var(--atlas-secondary);
   }
 
   .message-assistant {
     align-self: flex-start;
     background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(26, 10, 10, 0.9) 100%);
-    border-color: var(--oasis-primary);
+    border-color: var(--atlas-primary);
   }
 
   .message-content {
@@ -159,7 +159,7 @@
     display: flex;
     gap: 1rem;
     padding: 1rem;
-    border-top: 2px solid var(--oasis-primary);
+    border-top: 2px solid var(--atlas-primary);
   }
 
   .chat-input {
@@ -188,11 +188,11 @@
   }
 
   .chat-messages::-webkit-scrollbar-thumb {
-    background: var(--oasis-primary);
+    background: var(--atlas-primary);
     border-radius: 4px;
   }
 
   .chat-messages::-webkit-scrollbar-thumb:hover {
-    background: var(--oasis-secondary);
+    background: var(--atlas-secondary);
   }
 </style>

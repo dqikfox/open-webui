@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import QasyChat from './QasyChat.svelte';
   import QasyToolPanel from './QasyToolPanel.svelte';
-  import UltronCityScene from './UltronCityScene.svelte';
+  import AtlasCityScene from './AtlasCityScene.svelte';
   
   let activeTab = 'chat';
   let status = {};
@@ -11,10 +11,10 @@
   async function loadStatus() {
     try {
       const [qasyRes, nemoRes, nvidia3dRes, autogptRes] = await Promise.all([
-        fetch('/api/oasis/status'),
-        fetch('/api/oasis/nemo/status'),
-        fetch('/api/oasis/nvidia3d/status'),
-        fetch('/api/oasis/autogpt/status')
+        fetch('/api/atlas/status'),
+        fetch('/api/atlas/nemo/status'),
+        fetch('/api/atlas/nvidia3d/status'),
+        fetch('/api/atlas/autogpt/status')
       ]);
       
       status = {
@@ -25,12 +25,12 @@
       };
       
       features = [
-        { name: 'OASIS Agent', enabled: status.qasy.agent.active, icon: '🤖' },
+        { name: 'ATLAS Agent', enabled: status.qasy.agent.active, icon: '🤖' },
         { name: 'NeMo Toolkit', enabled: status.nemo.enabled, icon: '🧠' },
         { name: 'NVIDIA 3D Gen', enabled: status.nvidia3d.enabled, icon: '🏗️' },
         { name: 'AutoGPT Code', enabled: status.autogpt.enabled, icon: '💻' },
         { name: 'MiniMax AI', enabled: true, icon: '🎨' },
-        { name: 'Ultron Theme', enabled: true, icon: '🌃' }
+        { name: 'Atlas Theme', enabled: true, icon: '🌃' }
       ];
     } catch (error) {
       console.error('Failed to load status:', error);
@@ -42,7 +42,7 @@
 
 <div class="qasy-dashboard">
   <header class="dashboard-header">
-    <h1>OASIS CONTROL CENTER</h1>
+    <h1>ATLAS CONTROL CENTER</h1>
     <div class="status-grid">
       {#each features as feature}
         <div class="status-card" class:enabled={feature.enabled}>
@@ -75,12 +75,12 @@
     {:else if activeTab === 'tools'}
       <QasyToolPanel />
     {:else if activeTab === 'city'}
-      <UltronCityScene />
+      <AtlasCityScene />
     {:else if activeTab === 'code'}
       <div class="code-panel">
         <h2>AutoGPT Code Generation</h2>
         <textarea placeholder="Describe the code you want to generate..." rows="5"></textarea>
-        <button class="ultron-button">Generate Code</button>
+        <button class="atlas-button">Generate Code</button>
       </div>
     {/if}
   </main>

@@ -38,6 +38,6 @@
     <line x1="110" y1="146" x2="70" y2="186"/>
   </g>
   
-  <!-- OASIS text -->
+  <!-- ATLAS text -->
   <text x="128" y="145" text-anchor="middle" fill="white" font-family="Orbitron,Arial" font-size="48" font-weight="900" filter="url(#iconGlow)">O</text>
 </svg>

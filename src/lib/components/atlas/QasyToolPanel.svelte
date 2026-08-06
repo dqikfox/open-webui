@@ -7,7 +7,7 @@
   let result = null;
 
   async function loadTools() {
-    const res = await fetch('/api/oasis/tools');
+    const res = await fetch('/api/atlas/tools');
     const data = await res.json();
     tools = data.tools || [];
   }
@@ -16,7 +16,7 @@
     if (!selectedTool) return;
     
     try {
-      const res = await fetch(`/api/oasis/tool/${selectedTool}`, {
+      const res = await fetch(`/api/atlas/tool/${selectedTool}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ params })
@@ -30,10 +30,10 @@
   onMount(loadTools);
 </script>
 
-<div class="tool-panel ultron-glow">
-  <h3>OASIS Tools</h3>
+<div class="tool-panel atlas-glow">
+  <h3>ATLAS Tools</h3>
   
-  <select bind:value={selectedTool} class="ultron-input">
+  <select bind:value={selectedTool} class="atlas-input">
     <option value={null}>Select a tool...</option>
     {#each tools as tool}
       <option value={tool.name}>{tool.name} - {tool.description}</option>
@@ -45,9 +45,9 @@
       <input
         bind:value={params.message}
         placeholder="Parameters (JSON or text)"
-        class="ultron-input"
+        class="atlas-input"
       />
-      <button on:click={executeTool} class="ultron-button">Execute Tool</button>
+      <button on:click={executeTool} class="atlas-button">Execute Tool</button>
     </div>
   {/if}
 

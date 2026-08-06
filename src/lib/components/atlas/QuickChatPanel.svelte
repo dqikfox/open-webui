@@ -124,7 +124,7 @@
       on:keydown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
     />
     <button 
-      class="send-btn ultron-button" 
+      class="send-btn atlas-button"
       on:click={sendMessage}
       disabled={!inputMessage.trim() || !selectedModel || loading}
     >

@@ -50,7 +50,7 @@
 		const devices = await navigator.mediaDevices.enumerateDevices();
 		videoInputDevices = devices.filter((device) => device.kind === 'videoinput');
 
-		if (!!navigator.mediaDevices.getDisplayMedia) {
+		if (navigator.mediaDevices.getDisplayMedia) {
 			videoInputDevices = [
 				...videoInputDevices,
 				{
@@ -760,11 +760,11 @@
 								: rmsLevel * 100 > 1
 									? 'size-14'
 									: 'size-12'}  transition-all rounded-full {(model?.info?.meta
-							?.profile_image_url ?? '/static/assets/ultron/ultron_logo.svg') !== '/static/assets/ultron/ultron_logo.svg'
+							?.profile_image_url ?? '/static/assets/atlas/atlas_logo.svg') !== '/static/assets/atlas/atlas_logo.svg'
 							? ' bg-cover bg-center bg-no-repeat'
 							: 'bg-black dark:bg-white'}  bg-black dark:bg-white"
-						style={(model?.info?.meta?.profile_image_url ?? '/static/assets/ultron/ultron_logo.svg') !==
-						'/static/assets/ultron/ultron_logo.svg'
+						style={(model?.info?.meta?.profile_image_url ?? '/static/assets/atlas/atlas_logo.svg') !==
+						'/static/assets/atlas/atlas_logo.svg'
 							? `background-image: url('${model?.info?.meta?.profile_image_url}');`
 							: ''}
 					/>
@@ -842,11 +842,11 @@
 									: rmsLevel * 100 > 1
 										? 'size-44'
 										: 'size-40'}  transition-all rounded-full {(model?.info?.meta
-								?.profile_image_url ?? '/static/assets/ultron/ultron_logo.svg') !== '/static/assets/ultron/ultron_logo.svg'
+								?.profile_image_url ?? '/static/assets/atlas/atlas_logo.svg') !== '/static/assets/atlas/atlas_logo.svg'
 								? ' bg-cover bg-center bg-no-repeat'
 								: 'bg-black dark:bg-white'} "
-							style={(model?.info?.meta?.profile_image_url ?? '/static/assets/ultron/ultron_logo.svg') !==
-							'/static/assets/ultron/ultron_logo.svg'
+							style={(model?.info?.meta?.profile_image_url ?? '/static/assets/atlas/atlas_logo.svg') !==
+							'/static/assets/atlas/atlas_logo.svg'
 								? `background-image: url('${model?.info?.meta?.profile_image_url}');`
 								: ''}
 						/>

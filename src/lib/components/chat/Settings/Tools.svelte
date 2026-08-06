@@ -98,7 +98,7 @@
 							{$i18n.t('Connect to your own OpenAPI compatible external tool servers.')}
 							<br />
 							{$i18n.t(
-								'CORS must be properly configured by the provider to allow requests from OASIS.'
+								'CORS must be properly configured by the provider to allow requests from ATLAS.'
 							)}
 						</div>
 					</div>
@@ -106,7 +106,7 @@
 					<div class=" text-xs text-gray-600 dark:text-gray-300 mb-2">
 						<a
 							class="underline"
-							href="https://github.com/oasis/openapi-servers"
+							href="https://github.com/atlas/openapi-servers"
 							target="_blank">{$i18n.t('Learn more about OpenAPI tool servers.')}</a
 						>
 					</div>

@@ -35,7 +35,7 @@
 	onMount(async () => {
 		window.addEventListener('message', async (event) => {
 			if (
-				!['https://oasis.com', 'https://www.oasis.com', 'http://localhost:5173'].includes(
+				!['https://atlas.com', 'https://www.atlas.com', 'http://localhost:5173'].includes(
 					event.origin
 				)
 			)

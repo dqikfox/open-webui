@@ -42,9 +42,9 @@
 	let codeEditor;
 	let boilerplate = `"""
 title: Example Filter
-author: oasis
-author_url: https://github.com/oasis
-funding_url: https://github.com/oasis
+author: atlas
+author_url: https://github.com/atlas
+funding_url: https://github.com/atlas
 version: 0.1
 """
 

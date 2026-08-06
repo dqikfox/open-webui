@@ -195,7 +195,7 @@
 </script>
 
 <svelte:head>
-	<title>#{channel?.name ?? 'Channel'} • OASIS</title>
+	<title>#{channel?.name ?? 'Channel'} • ATLAS</title>
 </svelte:head>
 
 <div

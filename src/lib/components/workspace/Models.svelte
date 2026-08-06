@@ -96,9 +96,9 @@
 	};
 
 	const shareModelHandler = async (model) => {
-		toast.success($i18n.t('Redirecting you to OASIS Community'));
+		toast.success($i18n.t('Redirecting you to ATLAS Community'));
 
-		const url = 'https://oasis.com';
+		const url = 'https://atlas.com';
 
 		const tab = await window.open(`${url}/models/create`, '_blank');
 
@@ -276,7 +276,7 @@
 								: 'opacity-50 dark:opacity-50'} "
 						>
 							<img
-								src={model?.meta?.profile_image_url ?? '/static/assets/ultron/ultron_logo.svg'}
+								src={model?.meta?.profile_image_url ?? '/static/assets/atlas/atlas_logo.svg'}
 								alt="modelfile profile"
 								class=" rounded-full w-full h-auto object-cover"
 							/>
@@ -547,12 +547,12 @@
 	{#if $config?.features.enable_community_sharing}
 		<div class=" my-16">
 			<div class=" text-xl font-medium mb-1 line-clamp-1">
-				{$i18n.t('Made by OASIS Community')}
+				{$i18n.t('Made by ATLAS Community')}
 			</div>
 
 			<a
 				class=" flex cursor-pointer items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-850 w-full mb-2 px-3.5 py-1.5 rounded-xl transition"
-				href="https://oasis.com/#oasis-community"
+				href="https://atlas.com/#atlas-community"
 				target="_blank"
 			>
 				<div class=" self-center">

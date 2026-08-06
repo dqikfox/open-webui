@@ -3,7 +3,7 @@
   export let color = '#ff0000';
 </script>
 
-<div class="ultron-loader" style="--size: {size}px; --color: {color}">
+<div class="atlas-loader" style="--size: {size}px; --color: {color}">
   <div class="loader-ring"></div>
   <div class="loader-ring"></div>
   <div class="loader-ring"></div>
@@ -11,7 +11,7 @@
 </div>
 
 <style>
-  .ultron-loader {
+  .atlas-loader {
     position: relative;
     width: var(--size);
     height: var(--size);

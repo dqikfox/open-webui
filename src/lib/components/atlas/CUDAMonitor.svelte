@@ -7,7 +7,7 @@
 
   async function fetchStatus() {
     try {
-      const res = await fetch('/api/oasis/cuda/status');
+      const res = await fetch('/api/atlas/cuda/status');
       cudaStatus = await res.json();
     } catch (e) {
       console.error('CUDA status error:', e);
@@ -17,7 +17,7 @@
   async function clearCache() {
     loading = true;
     try {
-      const res = await fetch('/api/oasis/cuda/clear-cache', { method: 'POST' });
+      const res = await fetch('/api/atlas/cuda/clear-cache', { method: 'POST' });
       const data = await res.json();
       alert(data.message || 'Cache cleared');
       await fetchStatus();
@@ -30,7 +30,7 @@
   async function setDevice(deviceId) {
     loading = true;
     try {
-      await fetch('/api/oasis/cuda/set-device', {
+      await fetch('/api/atlas/cuda/set-device', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ device_id: deviceId })
@@ -52,29 +52,29 @@
   });
 </script>
 
-<div class="cuda-monitor ultron-card">
-  <h2 class="ultron-text-glow">🎮 CUDA GPU Monitor</h2>
+<div class="cuda-monitor atlas-card">
+  <h2 class="atlas-text-glow">🎮 CUDA GPU Monitor</h2>
 
   {#if loading}
-    <div class="loading ultron-pulse">Loading...</div>
+    <div class="loading atlas-pulse">Loading...</div>
   {/if}
 
   {#if cudaStatus}
     {#if cudaStatus.available}
       <div class="status-grid">
-        <div class="stat-card ultron-card-hover">
+        <div class="stat-card atlas-card-hover">
           <h3>CUDA Version</h3>
           <p class="value">{cudaStatus.cuda_version}</p>
         </div>
-        <div class="stat-card ultron-card-hover">
+        <div class="stat-card atlas-card-hover">
           <h3>cuDNN Version</h3>
           <p class="value">{cudaStatus.cudnn_version}</p>
         </div>
-        <div class="stat-card ultron-card-hover">
+        <div class="stat-card atlas-card-hover">
           <h3>GPU Count</h3>
           <p class="value">{cudaStatus.device_count}</p>
         </div>
-        <div class="stat-card ultron-card-hover">
+        <div class="stat-card atlas-card-hover">
           <h3>Active Device</h3>
           <p class="value">{cudaStatus.current_device}</p>
         </div>
@@ -82,10 +82,10 @@
 
       <div class="devices">
         {#each cudaStatus.devices as device, i}
-          <div class="device-card ultron-card-hover" class:active={i === cudaStatus.current_device}>
+          <div class="device-card atlas-card-hover" class:active={i === cudaStatus.current_device}>
             <div class="device-header">
               <h3>GPU {device.id}: {device.name}</h3>
-              <button on:click={() => setDevice(device.id)} class="ultron-button-sm">
+              <button on:click={() => setDevice(device.id)} class="atlas-button-sm">
                 {i === cudaStatus.current_device ? '✓ Active' : 'Activate'}
               </button>
             </div>
@@ -106,8 +106,8 @@
       </div>
 
       <div class="controls">
-        <button on:click={clearCache} class="ultron-button">🗑️ Clear Cache</button>
-        <button on:click={fetchStatus} class="ultron-button">🔄 Refresh</button>
+        <button on:click={clearCache} class="atlas-button">🗑️ Clear Cache</button>
+        <button on:click={fetchStatus} class="atlas-button">🔄 Refresh</button>
       </div>
     {:else}
       <div class="no-cuda">
@@ -210,7 +210,7 @@
     margin-top: 1.5rem;
   }
 
-  .ultron-button-sm {
+  .atlas-button-sm {
     padding: 0.25rem 0.75rem;
     background: rgba(255, 0, 0, 0.1);
     border: 1px solid #ff0000;
@@ -219,7 +219,7 @@
     transition: all 0.3s;
   }
 
-  .ultron-button-sm:hover {
+  .atlas-button-sm:hover {
     background: rgba(255, 0, 0, 0.2);
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
   }

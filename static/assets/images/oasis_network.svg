@@ -40,6 +40,6 @@
   <line x1="1000" y1="220" x2="1100" y2="400" stroke="#ff0000" stroke-width="1" opacity="0.4"/>
   <line x1="1400" y1="200" x2="1500" y2="420" stroke="#ff0000" stroke-width="1" opacity="0.4"/>
   
-  <!-- Central OASIS text -->
+  <!-- Central ATLAS text -->
   <text x="960" y="540" text-anchor="middle" fill="#ff0000" font-family="Orbitron" font-size="80" font-weight="bold" opacity="0.8">AI NETWORK</text>
 </svg>

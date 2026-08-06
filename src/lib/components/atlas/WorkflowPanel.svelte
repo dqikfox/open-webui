@@ -17,7 +17,7 @@
   };
 
   async function loadWorkflows() {
-    const res = await fetch('/api/oasis/workflow/list');
+    const res = await fetch('/api/atlas/workflow/list');
     const data = await res.json();
     workflows = data.workflows || [];
   }
@@ -26,7 +26,7 @@
     if (!selectedWorkflow) return;
     loading = true;
     try {
-      const res = await fetch('/api/oasis/workflow/execute', {
+      const res = await fetch('/api/atlas/workflow/execute', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -44,7 +44,7 @@
 
   async function checkStatus() {
     if (!taskId) return;
-    const res = await fetch(`/api/oasis/workflow/status/${taskId}`);
+    const res = await fetch(`/api/atlas/workflow/status/${taskId}`);
     const status = await res.json();
     console.log('Status:', status);
   }
@@ -54,11 +54,11 @@
   });
 </script>
 
-<div class="workflow-panel ultron-card">
-  <h2 class="ultron-text-glow">⚙️ Agent Workflows</h2>
+<div class="workflow-panel atlas-card">
+  <h2 class="atlas-text-glow">⚙️ Agent Workflows</h2>
 
   <div class="workflow-select">
-    <select bind:value={selectedWorkflow} class="ultron-input">
+    <select bind:value={selectedWorkflow} class="atlas-input">
       <option value="">Select Workflow</option>
       {#each workflows as wf}
         <option value={wf}>{wf.replace('_', ' ').toUpperCase()}</option>
@@ -72,26 +72,26 @@
         <div class="param-field">
           <label>{param.replace('_', ' ')}</label>
           {#if param.includes('content') || param.includes('code')}
-            <textarea bind:value={params[param]} class="ultron-input" rows="5"></textarea>
+            <textarea bind:value={params[param]} class="atlas-input" rows="5"></textarea>
           {:else}
-            <input bind:value={params[param]} class="ultron-input" />
+            <input bind:value={params[param]} class="atlas-input" />
           {/if}
         </div>
       {/each}
     </div>
 
     <div class="actions">
-      <button on:click={executeWorkflow} class="ultron-button" disabled={loading}>
+      <button on:click={executeWorkflow} class="atlas-button" disabled={loading}>
         {loading ? '⏳ Running...' : '▶️ Execute'}
       </button>
       {#if taskId}
-        <button on:click={checkStatus} class="ultron-button">📊 Check Status</button>
+        <button on:click={checkStatus} class="atlas-button">📊 Check Status</button>
       {/if}
     </div>
   {/if}
 
   {#if result}
-    <div class="result ultron-card-hover">
+    <div class="result atlas-card-hover">
       <h3>Result</h3>
       <pre>{JSON.stringify(result, null, 2)}</pre>
     </div>

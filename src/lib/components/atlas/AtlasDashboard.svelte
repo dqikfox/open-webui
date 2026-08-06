@@ -19,7 +19,7 @@
   async function loadStats() {
     loading = true;
     try {
-      const res = await fetch('/api/oasis/status');
+      const res = await fetch('/api/atlas/status');
       stats = await res.json();
       await loadModels();
     } catch (e) {
@@ -46,7 +46,7 @@
     if (!commandInput.trim()) return;
     
     try {
-      const res = await fetch('/api/oasis/execute', {
+      const res = await fetch('/api/atlas/execute', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ command: commandInput })
@@ -79,9 +79,9 @@
   });
 </script>
 
-<div class="oasis-dashboard">
+<div class="atlas-dashboard">
   <div class="dashboard-header">
-    <h1 class="ultron-text-glow">🌟 OASIS Control Center</h1>
+    <h1 class="atlas-text-glow">🌟 ATLAS Control Center</h1>
     <div class="status-indicator {stats.agent ? 'online' : 'offline'}">
       {stats.agent ? '🟢 Online' : '🔴 Offline'}
     </div>
@@ -114,7 +114,7 @@
   <div class="dashboard-content">
     {#if activeTab === 'dashboard'}
       <div class="stats-grid">
-        <div class="stat-card ultron-card">
+        <div class="stat-card atlas-card">
           <h3>Agent Status</h3>
           {#if loading}
             <LoadingSpinner />
@@ -122,15 +122,15 @@
             <p class="stat-value">{stats.agent?.status || 'Unknown'}</p>
           {/if}
         </div>
-        <div class="stat-card ultron-card">
+        <div class="stat-card atlas-card">
           <h3>Memory Usage</h3>
           <p class="stat-value">{stats.memory?.messages || 0} messages</p>
         </div>
-        <div class="stat-card ultron-card">
+        <div class="stat-card atlas-card">
           <h3>Tools Loaded</h3>
           <p class="stat-value">20+ tools</p>
         </div>
-        <div class="stat-card ultron-card">
+        <div class="stat-card atlas-card">
           <h3>Functions</h3>
           <p class="stat-value">20 functions</p>
         </div>
@@ -139,25 +139,25 @@
       <div class="quick-actions">
         <h3>Quick Actions</h3>
         <div class="action-grid">
-          <button class="action-btn ultron-button" on:click={() => activeTab = 'autogen'}>
+          <button class="action-btn atlas-button" on:click={() => activeTab = 'autogen'}>
             🧠 Generate Suggestions
           </button>
-          <button class="action-btn ultron-button" on:click={() => activeTab = 'workflows'}>
+          <button class="action-btn atlas-button" on:click={() => activeTab = 'workflows'}>
             🔄 Run Workflow
           </button>
-          <button class="action-btn ultron-button" on:click={loadStats}>
+          <button class="action-btn atlas-button" on:click={loadStats}>
             🔄 Refresh Stats
           </button>
-          <button class="action-btn ultron-button" on:click={() => activeTab = 'cuda'}>
+          <button class="action-btn atlas-button" on:click={() => activeTab = 'cuda'}>
             📊 Check GPU
           </button>
-          <button class="action-btn ultron-button" on:click={() => activeTab = 'chat'}>
+          <button class="action-btn atlas-button" on:click={() => activeTab = 'chat'}>
             💬 Quick Chat
           </button>
-          <button class="action-btn ultron-button" on:click={() => activeTab = 'terminal'}>
+          <button class="action-btn atlas-button" on:click={() => activeTab = 'terminal'}>
             💻 Terminal
           </button>
-          <button class="action-btn ultron-button" on:click={() => activeTab = 'system'}>
+          <button class="action-btn atlas-button" on:click={() => activeTab = 'system'}>
             📊 System Monitor
           </button>
         </div>
@@ -184,16 +184,16 @@
       <SystemMonitor />
     {:else if activeTab === 'terminal'}
       <div class="terminal-panel">
-        <h3>OASIS Command Terminal</h3>
+        <h3>ATLAS Command Terminal</h3>
         <div class="command-input">
           <input 
             type="text" 
             bind:value={commandInput} 
-            placeholder="Enter OASIS command (e.g., 'test', 'analyze file.py', 'tool list')" 
+            placeholder="Enter ATLAS command (e.g., 'test', 'analyze file.py', 'tool list')"
             class="terminal-input"
             on:keydown={(e) => e.key === 'Enter' && executeCommand()}
           />
-          <button class="execute-btn ultron-button" on:click={executeCommand}>
+          <button class="execute-btn atlas-button" on:click={executeCommand}>
             ⚡ Execute
           </button>
         </div>
@@ -219,7 +219,7 @@
 {/if}
 
 <style>
-  .oasis-dashboard {
+  .atlas-dashboard {
     max-width: 1400px;
     margin: 0 auto;
     padding: 2rem;

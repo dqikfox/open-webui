@@ -46,11 +46,11 @@ main::before, main::after,
 /* ========================================== */
 
 :root {
-  /* Primary Ultron Colors */
-  --ultron-crimson: #ff0000;
-  --ultron-red-bright: #ff3333;
-  --ultron-red-dark: #cc0000;
-  --ultron-red-deep: #990000;
+  /* Primary Atlas Colors */
+  --atlas-cyan: #ff0000;
+  --atlas-red-bright: #ff3333;
+  --atlas-red-dark: #cc0000;
+  --atlas-red-deep: #990000;
   
   /* Aether Energy Colors */
   --aether-cyan: #00ffff;
@@ -71,17 +71,17 @@ main::before, main::after,
   --nexus-steel: #2a2a2a;
   
   /* Glow Effects */
-  --crimson-glow: 0 0 20px rgba(255, 0, 0, 0.8);
+  --cyan-glow: 0 0 20px rgba(255, 0, 0, 0.8);
   --aether-glow: 0 0 25px rgba(0, 255, 255, 0.6);
   --neural-glow: 0 0 20px rgba(153, 51, 255, 0.7);
   --nexus-glow: 0 0 30px rgba(255, 0, 0, 0.5), 0 0 50px rgba(0, 255, 255, 0.3);
   
   /* Legacy compatibility */
-  --oasis-primary: var(--ultron-crimson);
-  --oasis-secondary: var(--ultron-red-bright);
-  --oasis-dark: var(--nexus-dark);
-  --oasis-darker: var(--nexus-void);
-  --oasis-glow: var(--crimson-glow);
+  --atlas-primary: #00ffff;
+  --atlas-secondary: #0099ff;
+  --atlas-dark: var(--nexus-dark);
+  --atlas-darker: var(--nexus-void);
+  --atlas-glow: var(--cyan-glow);
 }
 
 /* ========================================== */
@@ -105,7 +105,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/static/assets/ultron/ultron_neural_network.svg');
+  background-image: url('/static/assets/atlas/atlas_neural_network.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -123,7 +123,7 @@ body::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/static/assets/ultron/ultron_circuit_pattern.svg');
+  background-image: url('/static/assets/atlas/atlas_circuit_pattern.svg');
   background-size: 40%;
   background-repeat: repeat;
   opacity: 0.08;
@@ -161,13 +161,13 @@ main, [role="main"] {
     rgba(10, 26, 26, 0.90) 100%);
   border: 2px solid transparent;
   border-image: linear-gradient(135deg, 
-    var(--ultron-crimson) 0%, 
+    #00ffff 0%,
     var(--aether-cyan) 50%,
     var(--neural-purple) 100%) 1;
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 
-    var(--crimson-glow),
+    var(--cyan-glow),
     inset 0 0 30px rgba(0, 255, 255, 0.05);
   position: relative;
   overflow: hidden;
@@ -202,17 +202,17 @@ main, [role="main"] {
   border-image: linear-gradient(135deg, 
     var(--aether-cyan) 0%, 
     var(--neural-purple) 50%,
-    var(--ultron-crimson) 100%) 1;
+    #00ffff 100%) 1;
 }
 
-/* Ultron Buttons - Aether Enhanced */
+/* Atlas Buttons - Aether Enhanced */
 button, [role="button"], [type="submit"], [type="button"],
-.nexus-button, .ultron-button, .aether-button {
+.nexus-button, .atlas-button, .aether-button {
   background: linear-gradient(135deg, 
-    var(--ultron-red-dark) 0%, 
-    var(--ultron-crimson) 50%,
-    var(--ultron-red-dark) 100%);
-  border: 2px solid var(--ultron-red-bright);
+    var(--atlas-red-dark) 0%,
+    #00ffff 50%,
+    var(--atlas-red-dark) 100%);
+  border: 2px solid #0099ff;
   color: #ffffff;
   padding: 0.875rem 2rem;
   border-radius: 10px;
@@ -223,7 +223,7 @@ button, [role="button"], [type="submit"], [type="button"],
   text-transform: uppercase;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    var(--crimson-glow),
+    var(--cyan-glow),
     0 4px 15px rgba(255, 0, 0, 0.4);
   position: relative;
   overflow: hidden;
@@ -255,8 +255,8 @@ button:hover, [role="button"]:hover {
     0 8px 30px rgba(255, 0, 0, 0.6);
   border-color: var(--aether-cyan);
   background: linear-gradient(135deg, 
-    var(--ultron-crimson) 0%, 
-    var(--ultron-red-dark) 50%,
+    #00ffff 0%,
+    var(--atlas-red-dark) 50%,
     var(--neural-purple) 100%);
 }
 
@@ -270,7 +270,7 @@ input, textarea, select, [contenteditable] {
     rgba(5, 5, 5, 0.98) 0%, 
     rgba(10, 5, 15, 0.95) 100%);
   border: 2px solid rgba(255, 0, 0, 0.4);
-  border-left: 4px solid var(--ultron-crimson);
+  border-left: 4px solid #00ffff;
   color: var(--aether-cyan);
   padding: 0.875rem 1.25rem;
   border-radius: 8px;
@@ -320,46 +320,46 @@ input::placeholder, textarea::placeholder {
   }
 }
 
-/* OASIS Inputs */
-.oasis-input, .ultron-input {
+/* ATLAS Inputs */
+.atlas-input, .atlas-input {
   background: rgba(5, 5, 5, 0.9);
-  border: 2px solid var(--oasis-primary);
-  color: var(--oasis-secondary);
+  border: 2px solid var(--atlas-primary);
+  color: var(--atlas-secondary);
   padding: 0.75rem;
   border-radius: 6px;
   font-family: 'Courier New', monospace;
   transition: all 0.3s ease;
 }
 
-.oasis-input:focus, .ultron-input:focus {
+.atlas-input:focus, .atlas-input:focus {
   outline: none;
-  border-color: var(--oasis-secondary);
-  box-shadow: var(--oasis-glow);
+  border-color: var(--atlas-secondary);
+  box-shadow: var(--atlas-glow);
   background: rgba(10, 10, 10, 0.95);
 }
 
-/* OASIS Animations */
-@keyframes oasis-pulse {
+/* ATLAS Animations */
+@keyframes atlas-pulse {
   0%, 100% { opacity: 0.8; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.02); }
 }
 
-.oasis-pulse, .ultron-pulse {
-  animation: oasis-pulse 2s ease-in-out infinite;
+.atlas-pulse, .atlas-pulse {
+  animation: atlas-pulse 2s ease-in-out infinite;
 }
 
-@keyframes oasis-glow {
+@keyframes atlas-glow {
   0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
   50% { box-shadow: 0 0 40px rgba(255, 0, 0, 0.6); }
 }
 
-.oasis-glow-animation {
-  animation: oasis-glow 3s ease-in-out infinite;
+.atlas-glow-animation {
+  animation: atlas-glow 3s ease-in-out infinite;
 }
 
-/* OASIS Hero Section with Stunning Banner */
+/* ATLAS Hero Section with Stunning Banner */
 .hero-section, [class*="hero"] {
-  background-image: url('/static/assets/ultron/ultron_hero_banner.svg');
+  background-image: url('/static/assets/atlas/atlas_hero_banner.svg');
   background-size: cover;
   background-position: center;
   min-height: 400px;
@@ -421,13 +421,13 @@ main, .main-container, [class*="main"] {
 }
 
 .chat-container::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--armory-red) 0%, var(--ultron-red-dark) 100%);
+  background: linear-gradient(180deg, var(--armory-red) 0%, var(--atlas-red-dark) 100%);
   border-radius: 5px;
-  border-left: 2px solid var(--ultron-red-bright);
+  border-left: 2px solid #0099ff;
   box-shadow: var(--tactical-glow);
 }
 
-/* Ultron circuit pattern background for main content */
+/* Atlas circuit pattern background for main content */
 .main-content::before {
   content: '';
   position: fixed;
@@ -435,7 +435,7 @@ main, .main-container, [class*="main"] {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/static/assets/ultron/ultron_circuit_pattern.svg');
+  background-image: url('/static/assets/atlas/atlas_circuit_pattern.svg');
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -451,7 +451,7 @@ main, .main-container, [class*="main"] {
   border-left: 4px solid var(--armory-red) !important;
   box-shadow: var(--tactical-glow), inset 0 0 20px rgba(255, 0, 0, 0.1) !important;
   font-family: 'Courier New', monospace;
-  color: var(--ultron-red-bright) !important;
+  color: #0099ff !important;
 }
 
 .chat-input::before {
@@ -485,7 +485,7 @@ main, .main-container, [class*="main"] {
 .message-ai, [class*="message-ai"], .message-assistant {
   background: linear-gradient(135deg, rgba(15, 15, 15, 0.9) 0%, rgba(26, 10, 10, 0.9) 100%);
   border: 1px solid rgba(255, 0, 0, 0.4);
-  border-left: 3px solid var(--ultron-red-bright);
+  border-left: 3px solid #0099ff;
   box-shadow: var(--circuit-glow);
   position: relative;
 }
@@ -505,7 +505,7 @@ main, .main-container, [class*="main"] {
   background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(26, 10, 10, 0.95) 100%) !important;
   border: 2px solid var(--armory-red) !important;
   box-shadow: var(--tactical-glow);
-  color: var(--ultron-red-bright) !important;
+  color: #0099ff !important;
   font-weight: 600;
 }
 
@@ -533,7 +533,7 @@ main, .main-container, [class*="main"] {
 
 .chat-item.active {
   background: rgba(42, 21, 21, 0.9);
-  border-left-color: var(--ultron-red-bright);
+  border-left-color: #0099ff;
   box-shadow: inset 5px 0 15px rgba(255, 0, 0, 0.3), var(--circuit-glow);
 }
 
@@ -580,7 +580,7 @@ main, .main-container, [class*="main"] {
 }
 
 .loading-text {
-  color: var(--ultron-red-bright);
+  color: #0099ff;
   text-shadow: 0 0 20px var(--armory-red);
   animation: pulse-red 1.5s ease-in-out infinite;
 }
@@ -594,7 +594,7 @@ main, .main-container, [class*="main"] {
 
 .context-menu-item:hover {
   background: rgba(255, 0, 0, 0.2);
-  color: var(--ultron-red-bright);
+  color: #0099ff;
 }
 
 /* Search highlighting */
@@ -639,13 +639,13 @@ mark, .highlight {
   background: linear-gradient(135deg, 
     rgba(26, 10, 10, 0.95) 0%, 
     rgba(42, 21, 21, 0.92) 100%);
-  border: 1px solid var(--ultron-crimson);
-  border-right: 3px solid var(--ultron-red-bright);
+  border: 1px solid #00ffff;
+  border-right: 3px solid #0099ff;
   border-radius: 12px;
   padding: 1rem 1.5rem;
   margin: 0.75rem 0;
   box-shadow: 
-    var(--crimson-glow),
+    var(--cyan-glow),
     inset 0 0 20px rgba(255, 0, 0, 0.1);
   position: relative;
 }
@@ -656,7 +656,7 @@ mark, .highlight {
   left: 0.5rem;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--ultron-crimson);
+  color: #00ffff;
   font-size: 0.7rem;
   animation: user-pulse 2s ease-in-out infinite;
 }
@@ -702,13 +702,13 @@ mark, .highlight {
 [class*="chat"][class*="input"], textarea[placeholder*="message"], .chat-input-field {
   background: rgba(5, 5, 5, 0.98) !important;
   border: 2px solid rgba(255, 0, 0, 0.4) !important;
-  border-left: 4px solid var(--ultron-crimson) !important;
+  border-left: 4px solid #00ffff !important;
   border-radius: 10px !important;
   color: var(--aether-cyan) !important;
   font-family: 'Courier New', monospace !important;
   padding: 1rem !important;
   box-shadow: 
-    var(--crimson-glow),
+    var(--cyan-glow),
     inset 0 2px 15px rgba(0, 0, 0, 0.8) !important;
   transition: all 0.3s ease !important;
 }
@@ -725,9 +725,9 @@ mark, .highlight {
   background: linear-gradient(180deg, 
     rgba(10, 10, 10, 0.98) 0%, 
     rgba(5, 5, 5, 0.98) 100%);
-  border-right: 2px solid var(--ultron-crimson);
+  border-right: 2px solid #00ffff;
   box-shadow: 
-    var(--crimson-glow),
+    var(--cyan-glow),
     inset -5px 0 20px rgba(255, 0, 0, 0.1);
 }
 
@@ -768,13 +768,13 @@ mark, .highlight {
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, 
-    var(--ultron-crimson) 0%, 
+    #00ffff 0%,
     var(--aether-cyan) 50%,
     var(--neural-purple) 100%);
   border-radius: 6px;
   border: 2px solid rgba(0, 0, 0, 0.8);
   box-shadow: 
-    var(--crimson-glow),
+    var(--cyan-glow),
     inset 0 0 5px rgba(0, 255, 255, 0.3);
 }
 
@@ -782,7 +782,7 @@ mark, .highlight {
   background: linear-gradient(180deg, 
     var(--aether-cyan) 0%, 
     var(--neural-purple) 50%,
-    var(--ultron-crimson) 100%);
+    #00ffff 100%);
   box-shadow: var(--nexus-glow);
 }
 
@@ -799,7 +799,7 @@ mark, .highlight {
 
 /* Loading Spinner */
 [class*="loading"], [class*="spinner"], .loader {
-  border-top-color: var(--ultron-crimson) !important;
+  border-top-color: #00ffff !important;
   border-right-color: var(--aether-cyan) !important;
   border-bottom-color: var(--neural-purple) !important;
   border-left-color: transparent !important;
@@ -845,7 +845,7 @@ a:hover, [href]:hover {
     rgba(10, 26, 26, 0.93) 100%);
   border: 2px solid transparent;
   border-image: linear-gradient(135deg, 
-    var(--ultron-crimson) 0%, 
+    #00ffff 0%,
     var(--aether-cyan) 50%,
     var(--neural-purple) 100%) 1;
   border-radius: 15px;
@@ -858,7 +858,7 @@ a:hover, [href]:hover {
 /* Headers */
 h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, 
-    var(--ultron-crimson) 0%, 
+    #00ffff 0%,
     var(--aether-cyan) 50%,
     var(--neural-purple) 100%);
   -webkit-background-clip: text;
@@ -869,7 +869,7 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
 }
 
-/* Ultron Logo Enhancement */
+/* Atlas Logo Enhancement */
 img[src*="logo"], [class*="logo"] img {
   filter: drop-shadow(var(--nexus-glow));
   animation: logo-aether-pulse 4s ease-in-out infinite;
@@ -890,11 +890,11 @@ img[src*="logo"], [class*="logo"] img {
 /* Error/Success Messages */
 [class*="error"], .error-message {
   background: rgba(204, 0, 0, 0.2);
-  border-left: 4px solid var(--ultron-crimson);
-  color: var(--ultron-red-bright);
+  border-left: 4px solid #00ffff;
+  color: #0099ff;
   padding: 1rem;
   border-radius: 6px;
-  box-shadow: var(--crimson-glow);
+  box-shadow: var(--cyan-glow);
 }
 
 [class*="success"], .success-message {
@@ -919,7 +919,7 @@ img[src*="logo"], [class*="logo"] img {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/static/assets/ultron/ultron_interface_panel.svg');
+  background-image: url('/static/assets/atlas/atlas_interface_panel.svg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

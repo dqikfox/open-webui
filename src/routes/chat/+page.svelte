@@ -1,23 +1,23 @@
 <script>
-  import OasisChat from '$lib/components/oasis/OasisChat.svelte';
-  import UltronBackground from '$lib/components/oasis/UltronBackground.svelte';
+  import AtlasChat from '$lib/components/atlas/AtlasChat.svelte';
+  import AtlasBackground from '$lib/components/atlas/AtlasBackground.svelte';
 </script>
 
 <svelte:head>
-  <title>OASIS Chat - AI Conversation</title>
+  <title>ATLAS Chat - AI Conversation</title>
 </svelte:head>
 
-<UltronBackground />
+<AtlasBackground />
 
 <div class="chat-page">
   <div class="page-header">
-    <h1 class="oasis-text-glow">🤖 OASIS AI Chat</h1>
+    <h1 class="atlas-text-glow">🤖 ATLAS AI Chat</h1>
     <p class="page-subtitle">
       Powered by multi-agent system with 20+ functions and tools
     </p>
   </div>
 
-  <OasisChat />
+  <AtlasChat />
 
   <div class="chat-features">
     <div class="feature-list">
@@ -69,9 +69,9 @@
     margin: 2rem auto;
     padding: 2rem;
     background: rgba(10, 10, 10, 0.8);
-    border: 2px solid var(--oasis-primary);
+    border: 2px solid var(--atlas-primary);
     border-radius: 15px;
-    box-shadow: var(--oasis-glow);
+    box-shadow: var(--atlas-glow);
   }
 
   .feature-list {
@@ -86,7 +86,7 @@
     gap: 0.5rem;
     padding: 1rem;
     background: rgba(5, 5, 5, 0.8);
-    border: 1px solid var(--oasis-primary);
+    border: 1px solid var(--atlas-primary);
     border-radius: 8px;
     color: #fff;
     transition: all 0.3s;

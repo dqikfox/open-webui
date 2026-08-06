@@ -113,7 +113,7 @@
   async function generateCityWithMiniMax() {
     loading = true;
     try {
-      const res = await fetch('/api/oasis/minimax/generate', {
+      const res = await fetch('/api/atlas/minimax/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -155,10 +155,10 @@
   <canvas bind:this={canvas}></canvas>
   
   <div class="controls">
-    <button on:click={generateCity} class="ultron-button">
+    <button on:click={generateCity} class="atlas-button">
       Regenerate City
     </button>
-    <button on:click={generateCityWithMiniMax} disabled={loading} class="ultron-button">
+    <button on:click={generateCityWithMiniMax} disabled={loading} class="atlas-button">
       {loading ? 'Generating...' : 'Generate with AI'}
     </button>
   </div>

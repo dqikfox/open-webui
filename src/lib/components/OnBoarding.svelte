@@ -46,7 +46,7 @@
 					<img
 						id="logo"
 						crossorigin="anonymous"
-						src="/static/assets/ultron/ultron_logo.svg"
+						src="/static/assets/atlas/atlas_logo.svg"
 						class=" w-6 rounded-full"
 						alt="logo"
 					/>
@@ -81,7 +81,7 @@
 						]}
 					/>
 
-					<div class="mt-0.5">{$i18n.t(`with OASIS`)}</div>
+					<div class="mt-0.5">{$i18n.t(`with ATLAS`)}</div>
 				</div>
 
 				<div class="flex justify-center mt-8">
@@ -96,7 +96,7 @@
 							<ArrowRightCircle className="size-6" />
 						</button>
 						<div id="get-started" class="mt-1.5 font-primary text-base font-medium">
-							{$i18n.t(`Enter OASIS`)}
+							{$i18n.t(`Enter ATLAS`)}
 						</div>
 					</div>
 				</div>

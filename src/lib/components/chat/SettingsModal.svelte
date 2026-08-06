@@ -427,7 +427,7 @@
 				'about us',
 				'aboutapp',
 				'aboutme',
-				'aboutoasis',
+				'aboutatlas',
 				'aboutpage',
 				'aboutus',
 				'check for updates',
