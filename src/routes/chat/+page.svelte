@@ -1,6 +1,6 @@
 <script>
   import AtlasChat from '$lib/components/atlas/AtlasChat.svelte';
-  import AtlasBackground from '$lib/components/atlas/AtlasBackground.svelte';
+  import AtlasBackground from '$lib/components/layout/AtlasBackground.svelte';
 </script>
 
 <svelte:head>
