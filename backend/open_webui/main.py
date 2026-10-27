@@ -85,6 +85,11 @@ from open_webui.routers import (
     tools,
     users,
     utils,
+    ultron_ai,
+    ultron_voice,
+    ultron_vision,
+    model_intelligence,
+    ultron_minimax,
 )
 
 from open_webui.routers.retrieval import (
@@ -493,7 +498,7 @@ print(
 
 v{VERSION} - building the best AI user interface.
 {f"Commit: {WEBUI_BUILD_HASH}" if WEBUI_BUILD_HASH != "dev-build" else ""}
-https://github.com/open-webui/open-webui
+https://github.com/oasis/oasis
 """
 )
 
@@ -532,6 +537,16 @@ async def lifespan(app: FastAPI):
         limiter.total_tokens = THREAD_POOL_SIZE
 
     asyncio.create_task(periodic_usage_pool_cleanup())
+    
+    # Initialize model intelligence system
+    log.info("🧠 Initializing Model Intelligence System...")
+    try:
+        from open_webui.utils.model_monitoring import sync_available_models, periodic_model_sync
+        await sync_available_models(app)
+        asyncio.create_task(periodic_model_sync(app, interval_seconds=300))
+        log.info("✅ Model Intelligence System initialized")
+    except Exception as e:
+        log.error(f"⚠️  Model Intelligence initialization failed: {e}")
 
     yield
 
@@ -540,7 +555,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Open WebUI",
+    title="OASIS",
     docs_url="/docs" if ENV == "dev" else None,
     openapi_url="/openapi.json" if ENV == "dev" else None,
     redoc_url=None,
@@ -1152,6 +1167,7 @@ app.include_router(notes.router, prefix="/api/v1/notes", tags=["notes"])
 
 
 app.include_router(models.router, prefix="/api/v1/models", tags=["models"])
+app.include_router(model_intelligence.router, prefix="/api/v1/model-intelligence", tags=["model-intelligence"])
 app.include_router(knowledge.router, prefix="/api/v1/knowledge", tags=["knowledge"])
 app.include_router(prompts.router, prefix="/api/v1/prompts", tags=["prompts"])
 app.include_router(tools.router, prefix="/api/v1/tools", tags=["tools"])
@@ -1165,6 +1181,16 @@ app.include_router(
     evaluations.router, prefix="/api/v1/evaluations", tags=["evaluations"]
 )
 app.include_router(utils.router, prefix="/api/v1/utils", tags=["utils"])
+
+# ULTRON Agent Integration Routes
+app.include_router(ultron_ai.router, prefix="/api/v1/ultron/ai", tags=["ultron-ai"])
+app.include_router(ultron_voice.router, prefix="/api/v1/ultron/voice", tags=["ultron-voice"])
+app.include_router(ultron_vision.router, prefix="/api/v1/ultron/vision", tags=["ultron-vision"])
+app.include_router(ultron_minimax.router, prefix="/api/v1/ultron/minimax", tags=["ultron-minimax"])
+
+# OASIS Integration
+from open_webui.routers import oasis
+app.include_router(oasis.router, prefix="/api/qasy", tags=["qasy"])
 
 
 try:
@@ -1635,7 +1661,7 @@ async def get_app_latest_release_version(user=Depends(get_verified_user)):
         timeout = aiohttp.ClientTimeout(total=1)
         async with aiohttp.ClientSession(timeout=timeout, trust_env=True) as session:
             async with session.get(
-                "https://api.github.com/repos/open-webui/open-webui/releases/latest",
+                "https://api.github.com/repos/oasis/oasis/releases/latest",
                 ssl=AIOHTTP_CLIENT_SESSION_SSL,
             ) as response:
                 response.raise_for_status()
@@ -1656,7 +1682,7 @@ async def get_app_changelog():
 @app.get("/api/usage")
 async def get_current_usage(user=Depends(get_verified_user)):
     """
-    Get current usage statistics for Open WebUI.
+    Get current usage statistics for OASIS.
     This is an experimental endpoint and subject to change.
     """
     try:
@@ -1705,7 +1731,7 @@ async def get_manifest_json():
         return {
             "name": app.state.WEBUI_NAME,
             "short_name": app.state.WEBUI_NAME,
-            "description": "Open WebUI is an open, extensible, user-friendly interface for AI that adapts to your workflow.",
+            "description": "OASIS is an open, extensible, user-friendly interface for AI that adapts to your workflow.",
             "start_url": "/",
             "display": "standalone",
             "background_color": "#343541",

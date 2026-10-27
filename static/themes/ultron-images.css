@@ -1,0 +1,138 @@
+/* ULTRON THEME - HD IMAGE INTEGRATION */
+
+/* Hero Background */
+body {
+  background-image: url('/assets/ultron/background.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+}
+
+/* Sidebar Background */
+aside, nav, [class*="sidebar"] {
+  background-image: url('/assets/ultron/sidebar_bg.png') !important;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+/* Circuit Pattern Overlay */
+.circuit-overlay {
+  position: relative;
+}
+
+.circuit-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/ultron/circuit_pattern.png');
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hero Banner */
+.ultron-hero {
+  background-image: url('/assets/ultron/hero_banner.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ultron-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+  pointer-events: none;
+}
+
+/* Logo Integration */
+.ultron-logo {
+  background-image: url('/assets/ultron/logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 120px;
+  height: 120px;
+  filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+  animation: logo-pulse 3s ease-in-out infinite;
+}
+
+@keyframes logo-pulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+    transform: scale(1);
+  }
+  50% { 
+    filter: drop-shadow(0 0 40px rgba(255, 0, 0, 1));
+    transform: scale(1.05);
+  }
+}
+
+/* Card Backgrounds with Circuit Pattern */
+.card-ultron, [class*="card"].ultron-style {
+  background-image: url('/assets/ultron/circuit_pattern.png');
+  background-size: 400px 400px;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+/* Header with Logo */
+header .logo, .header .logo {
+  background-image: url('/assets/ultron/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6));
+}
+
+/* Loading Screen Background */
+.loading-screen {
+  background-image: url('/assets/ultron/background.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Modal Backdrop */
+.modal-backdrop, [class*="modal"]::before {
+  background-image: url('/assets/ultron/circuit_pattern.png');
+  background-size: 300px 300px;
+  opacity: 0.1;
+}
+
+/* Fallback for missing images */
+body:not(.ultron-images-loaded) {
+  background-image: none;
+}
+
+/* Image loaded indicator */
+body.ultron-images-loaded .ultron-logo {
+  animation: logo-entrance 0.8s ease-out;
+}
+
+@keyframes logo-entrance {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.5) rotate(-180deg);
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1) rotate(0deg);
+  }
+}

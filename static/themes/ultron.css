@@ -1,0 +1,501 @@
+/* OASIS THEME - High Contrast Cyan & Blue */
+
+:root {
+  /* OASIS Bright Palette */
+  --color-gray-50: #f0f0f0;
+  --color-gray-100: #e0e0e0;
+  --color-gray-200: #c0c0c0;
+  --color-gray-300: #a0a0a0;
+  --color-gray-400: #808080;
+  --color-gray-500: #606060;
+  --color-gray-600: #404040;
+  --color-gray-700: #303030;
+  --color-gray-800: #202020;
+  --color-gray-850: #181818;
+  --color-gray-900: #101010;
+  --color-gray-950: #080808;
+  
+  /* OASIS Cyan/Blue Glow */
+  --primary-cyan: #00ffff;
+  --primary-blue: #0099ff;
+  --bright-cyan: #33ffff;
+  --dark-cyan: #00cccc;
+  --accent-blue: #0066ff;
+  --accent-green: #00ff00;
+  
+  /* Glow Effects */
+  --cyan-glow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.3);
+  --blue-glow: 0 0 15px rgba(0, 153, 255, 0.6), 0 0 30px rgba(0, 153, 255, 0.4);
+  --strong-glow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.5);
+}
+
+/* Background with modern gradient */
+body {
+  background: linear-gradient(135deg, #001a2e 0%, #003366 50%, #001a2e 100%);
+  background-attachment: fixed;
+  position: relative;
+  color: #ffffff;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 255, 0.03) 2px,
+    rgba(0, 255, 255, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 26, 46, 0.8) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glowing cyan borders and accents */
+.border, [class*="border-"] {
+  border-color: rgba(0, 255, 255, 0.5) !important;
+}
+
+/* Buttons with cyan glow */
+button, .btn {
+  background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
+  border: 2px solid var(--primary-cyan);
+  box-shadow: var(--cyan-glow);
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before, .btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button:hover, .btn:hover {
+  background: linear-gradient(135deg, #2a1515 0%, #3d1f1f 100%);
+  border-color: var(--ultron-red);
+  box-shadow: var(--tactical-glow);
+  transform: translateY(-2px) scale(1.02);
+}
+
+button:hover::before, .btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+button:active, .btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Input fields with red glow */
+input, textarea, select {
+  background: rgba(10, 10, 10, 0.8) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3) !important;
+  color: #ff6666 !important;
+  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--ultron-red) !important;
+  box-shadow: var(--circuit-glow), inset 0 0 15px rgba(255, 0, 0, 0.2) !important;
+  outline: none !important;
+}
+
+/* Cards and panels - TACTICAL DESIGN */
+.card, [class*="bg-white"], [class*="bg-gray"] {
+  background: linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(15, 15, 15, 0.95) 100%) !important;
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  border-left: 3px solid var(--armory-red);
+  box-shadow: var(--circuit-glow), inset 0 1px 0 rgba(255, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+}
+
+.card:hover, [class*="bg-white"]:hover, [class*="bg-gray"]:hover {
+  border-color: var(--ultron-red);
+  box-shadow: var(--tactical-glow), inset 0 1px 0 rgba(255, 0, 0, 0.2);
+  transform: translateX(2px);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 10, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ultron-red-dark) 0%, var(--ultron-red) 100%);
+  border-radius: 10px;
+  box-shadow: var(--circuit-glow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--ultron-red) 0%, var(--ultron-red-bright) 100%);
+  box-shadow: var(--circuit-glow-strong);
+}
+
+/* Text with red glow */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ultron-red-bright) !important;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  font-weight: 700;
+}
+
+/* Links */
+a {
+  color: var(--ultron-red-bright) !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--ultron-red) !important;
+  text-shadow: var(--circuit-glow);
+}
+
+/* Sidebar styling */
+aside, nav, [class*="sidebar"] {
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(26, 10, 10, 0.95) 100%) !important;
+  border-right: 2px solid rgba(255, 0, 0, 0.4);
+  box-shadow: 5px 0 20px rgba(255, 0, 0, 0.2);
+}
+
+/* Chat messages */
+.message, [class*="message"] {
+  background: rgba(15, 15, 15, 0.8);
+  border-left: 3px solid var(--ultron-red);
+  box-shadow: -5px 0 15px rgba(255, 0, 0, 0.1);
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+}
+
+/* Code blocks */
+pre, code {
+  background: rgba(5, 5, 5, 0.9) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: var(--circuit-glow);
+  }
+  50% {
+    box-shadow: var(--circuit-glow-strong);
+  }
+}
+
+@keyframes circuit-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animated circuit lines */
+.circuit-line {
+  animation: circuit-flow 3s ease infinite;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 0, 0, 0.3) 25%, 
+    var(--ultron-red) 50%, 
+    rgba(255, 0, 0, 0.3) 75%, 
+    transparent 100%);
+  background-size: 200% 100%;
+}
+
+/* Modal overlays */
+.modal, [class*="modal"] {
+  background: rgba(10, 10, 10, 0.95) !important;
+  border: 2px solid var(--ultron-red);
+  box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
+}
+
+/* Loading spinners */
+.spinner, [class*="loading"] {
+  border-color: rgba(255, 0, 0, 0.2);
+  border-top-color: var(--ultron-red);
+  animation: spin 1s linear infinite, pulse-red 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Tooltips */
+.tooltip, [data-tooltip] {
+  background: rgba(10, 10, 10, 0.95) !important;
+  border: 1px solid var(--ultron-red);
+  box-shadow: var(--circuit-glow-strong);
+  color: var(--ultron-red-bright) !important;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+/* Placeholder text */
+::placeholder {
+  color: rgba(255, 102, 102, 0.5) !important;
+}
+
+/* Badges and tags */
+.badge, .tag, [class*="badge"], [class*="tag"] {
+  background: linear-gradient(135deg, var(--ultron-red-dark) 0%, var(--ultron-red) 100%);
+  border: 1px solid var(--ultron-red-bright);
+  box-shadow: var(--circuit-glow);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Tables */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+th {
+  background: linear-gradient(180deg, rgba(26, 10, 10, 0.9) 0%, rgba(15, 15, 15, 0.9) 100%);
+  border-bottom: 2px solid var(--ultron-red);
+  color: var(--ultron-red-bright) !important;
+  font-weight: 700;
+}
+
+td {
+  border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+tr:hover {
+  background: rgba(255, 0, 0, 0.1);
+  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+/* Code blocks - TACTICAL STYLING */
+pre, code {
+  background: rgba(5, 5, 5, 0.9) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-left: 3px solid var(--armory-red);
+  box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.1), var(--circuit-glow);
+  font-family: 'Courier New', monospace;
+  color: var(--ultron-red-bright) !important;
+}
+
+/* Progress bars */
+.progress-bar, [class*="progress"] {
+  background: linear-gradient(90deg, 
+    var(--ultron-red-dark) 0%, 
+    var(--ultron-red) 50%, 
+    var(--ultron-red-bright) 100%);
+  box-shadow: var(--tactical-glow);
+  animation: progress-glow 2s ease-in-out infinite;
+}
+
+@keyframes progress-glow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Dropdown menus */
+.dropdown, select, [class*="dropdown"] {
+  background: rgba(10, 10, 10, 0.95) !important;
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  box-shadow: var(--circuit-glow);
+}
+
+.dropdown-item:hover, option:hover {
+  background: rgba(255, 0, 0, 0.2) !important;
+  color: var(--ultron-red-bright) !important;
+}
+
+/* Switches and toggles */
+.switch, [type="checkbox"], [type="radio"] {
+  accent-color: var(--ultron-red);
+}
+
+/* Dividers */
+hr {
+  border-color: rgba(255, 0, 0, 0.3);
+  box-shadow: 0 1px 5px rgba(255, 0, 0, 0.2);
+}
+
+/* Alert messages */
+.alert, [class*="alert"] {
+  background: rgba(26, 10, 10, 0.9);
+  border-left: 4px solid var(--ultron-red);
+  box-shadow: var(--circuit-glow);
+  color: var(--ultron-red-bright);
+}
+
+/* Icon glows */
+svg, i, [class*="icon"] {
+  filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.5));
+  transition: filter 0.3s ease;
+}
+
+svg:hover, i:hover, [class*="icon"]:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.8));
+}
+
+/* Animated background elements */
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  }
+}
+
+/* Scanline effect overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff0000, transparent);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+  animation: scanline 4s linear infinite;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes scanline {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+/* Header/Navigation enhancement with tactical banner */
+header, .header, nav {
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(26, 10, 10, 0.98) 100%), url('/static/assets/armory/tactical_header.svg') !important;
+  background-size: auto, cover;
+  background-position: center, center;
+  background-blend-mode: normal;
+  border-bottom: 2px solid var(--armory-red);
+  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+/* Footer styling */
+footer {
+  background: linear-gradient(0deg, rgba(10, 10, 10, 0.98) 0%, rgba(26, 10, 10, 0.98) 100%) !important;
+  border-top: 2px solid var(--armory-red);
+  box-shadow: 0 -5px 20px rgba(255, 0, 0, 0.2);
+}
+
+/* Input group enhancements */
+.input-group, [class*="input-group"] {
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--circuit-glow);
+}
+
+/* Form labels */
+label {
+  color: var(--ultron-red-bright) !important;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+/* Disabled states */
+:disabled, [disabled] {
+  opacity: 0.4;
+  filter: grayscale(0.5);
+}
+
+/* Active/Focus states */
+.active, :active, [class*="active"] {
+  background: rgba(255, 0, 0, 0.15) !important;
+  border-color: var(--ultron-red) !important;
+}
+
+/* Brand colors for ARMORY */
+.text-primary, [class*="text-primary"] {
+  color: var(--armory-red) !important;
+}
+
+.bg-primary, [class*="bg-primary"] {
+  background: var(--armory-red) !important;
+}
+
+/* Accent color - gold for special elements */
+.accent, [class*="accent"] {
+  color: var(--armory-gold) !important;
+  text-shadow: 0 0 10px rgba(204, 153, 0, 0.5);
+}
+  background: rgba(255, 0, 0, 0.05);
+}
+
+/* Progress bars */
+.progress, [class*="progress"] {
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.progress-bar, [class*="progress-bar"] {
+  background: linear-gradient(90deg, var(--ultron-red-dark) 0%, var(--ultron-red) 50%, var(--ultron-red-bright) 100%);
+  box-shadow: var(--circuit-glow);
+  animation: circuit-flow 2s ease infinite;
+  background-size: 200% 100%;
+}
+
+/* Dividers */
+hr {
+  border-color: rgba(255, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+/* Icons with glow */
+svg, i, [class*="icon"] {
+  filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.5));
+  transition: filter 0.3s ease;
+}
+
+svg:hover, i:hover, [class*="icon"]:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.8));
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <radialGradient id="cityBg" cx="50%" cy="100%">
+      <stop offset="0%" stop-color="#1a0a0a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <linearGradient id="neon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff0000"/>
+      <stop offset="100%" stop-color="#cc0000"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#cityBg)"/>
+  <!-- Skyscrapers -->
+  <rect x="100" y="300" width="80" height="780" fill="#1a1a1a" stroke="url(#neon)" stroke-width="2"/>
+  <rect x="250" y="200" width="100" height="880" fill="#1a1a1a" stroke="url(#neon)" stroke-width="2"/>
+  <rect x="400" y="250" width="90" height="830" fill="#1a1a1a" stroke="url(#neon)" stroke-width="2"/>
+  <rect x="550" y="150" width="120" height="930" fill="#1a1a1a" stroke="url(#neon)" stroke-width="2"/>
+  <rect x="750" y="100" width="150" height="980" fill="#1a1a1a" stroke="url(#neon)" stroke-width="2"/>
+  <rect x="950" y="180" width="110" height="900" fill="#1a1a1a" stroke="url(#neon)" stroke-width="2"/>
+  <rect x="1100" y="220" width="95" height="860" fill="#1a1a1a" stroke="url(#neon)" stroke-width="2"/>
+  <rect x="1250" y="160" width="130" height="920" fill="#1a1a1a" stroke="url(#neon)" stroke-width="2"/>
+  <rect x="1450" y="280" width="85" height="800" fill="#1a1a1a" stroke="url(#neon)" stroke-width="2"/>
+  <rect x="1600" y="320" width="75" height="760" fill="#1a1a1a" stroke="url(#neon)" stroke-width="2"/>
+  <!-- Neon lights -->
+  <circle cx="140" cy="400" r="3" fill="#ff0000" opacity="0.8"/>
+  <circle cx="300" cy="300" r="4" fill="#ff0000" opacity="0.8"/>
+  <circle cx="825" cy="200" r="5" fill="#ff0000" opacity="0.8"/>
+  <circle cx="1000" cy="280" r="3" fill="#ff0000" opacity="0.8"/>
+  <circle cx="1315" cy="260" r="4" fill="#ff0000" opacity="0.8"/>
+  <!-- OASIS text -->
+  <text x="960" y="540" text-anchor="middle" fill="#ff0000" font-family="Orbitron" font-size="120" font-weight="bold" opacity="0.7">OASIS</text>
+</svg>

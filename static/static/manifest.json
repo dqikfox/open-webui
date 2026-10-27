@@ -1,0 +1,21 @@
+{
+  "name": "OASIS - Omniscient AI System",
+  "short_name": "OASIS",
+  "description": "The most powerful, extensible AI platform designed to operate entirely offline",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ff0000",
+  "icons": [
+    {
+      "src": "/static/assets/ultron/ultron_logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/static/favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    }
+  ]
+}

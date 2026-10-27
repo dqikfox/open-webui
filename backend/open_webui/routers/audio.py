@@ -343,10 +343,10 @@ async def speech(request: Request, user=Depends(get_verified_user)):
                         "Authorization": f"Bearer {request.app.state.config.TTS_OPENAI_API_KEY}",
                         **(
                             {
-                                "X-OpenWebUI-User-Name": user.name,
-                                "X-OpenWebUI-User-Id": user.id,
-                                "X-OpenWebUI-User-Email": user.email,
-                                "X-OpenWebUI-User-Role": user.role,
+                                "X-OASIS-User-Name": user.name,
+                                "X-OASIS-User-Id": user.id,
+                                "X-OASIS-User-Email": user.email,
+                                "X-OASIS-User-Role": user.role,
                             }
                             if ENABLE_FORWARD_USER_INFO_HEADERS
                             else {}
@@ -379,7 +379,7 @@ async def speech(request: Request, user=Depends(get_verified_user)):
 
             raise HTTPException(
                 status_code=getattr(r, "status", 500) if r else 500,
-                detail=detail if detail else "Open WebUI: Server Connection Error",
+                detail=detail if detail else "OASIS: Server Connection Error",
             )
 
     elif request.app.state.config.TTS_ENGINE == "elevenlabs":
@@ -434,7 +434,7 @@ async def speech(request: Request, user=Depends(get_verified_user)):
 
             raise HTTPException(
                 status_code=getattr(r, "status", 500) if r else 500,
-                detail=detail if detail else "Open WebUI: Server Connection Error",
+                detail=detail if detail else "OASIS: Server Connection Error",
             )
 
     elif request.app.state.config.TTS_ENGINE == "azure":
@@ -493,7 +493,7 @@ async def speech(request: Request, user=Depends(get_verified_user)):
 
             raise HTTPException(
                 status_code=getattr(r, "status", 500) if r else 500,
-                detail=detail if detail else "Open WebUI: Server Connection Error",
+                detail=detail if detail else "OASIS: Server Connection Error",
             )
 
     elif request.app.state.config.TTS_ENGINE == "transformers":
@@ -611,7 +611,7 @@ def transcription_handler(request, file_path, metadata):
                 except Exception:
                     detail = f"External: {e}"
 
-            raise Exception(detail if detail else "Open WebUI: Server Connection Error")
+            raise Exception(detail if detail else "OASIS: Server Connection Error")
 
     elif request.app.state.config.STT_ENGINE == "deepgram":
         try:
@@ -674,7 +674,7 @@ def transcription_handler(request, file_path, metadata):
                         detail = f"External: {res['error'].get('message', '')}"
                 except Exception:
                     detail = f"External: {e}"
-            raise Exception(detail if detail else "Open WebUI: Server Connection Error")
+            raise Exception(detail if detail else "OASIS: Server Connection Error")
 
     elif request.app.state.config.STT_ENGINE == "azure":
         # Check file exists and size
@@ -791,7 +791,7 @@ def transcription_handler(request, file_path, metadata):
 
             raise HTTPException(
                 status_code=getattr(r, "status_code", 500) if r else 500,
-                detail=detail if detail else "Open WebUI: Server Connection Error",
+                detail=detail if detail else "OASIS: Server Connection Error",
             )
 
 

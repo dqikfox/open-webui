@@ -55,7 +55,7 @@
 								src={model?.info?.meta?.profile_image_url ??
 									($i18n.language === 'dg-DG'
 										? `/doge.png`
-										: `${WEBUI_BASE_URL}/static/favicon.png`)}
+										: `${WEBUI_BASE_URL}/static/assets/ultron/ultron_logo.svg`)}
 								class=" size-[2.7rem] rounded-full border-[1px] border-gray-100 dark:border-none"
 								alt="logo"
 								draggable="false"
@@ -104,7 +104,7 @@
 								By
 								{#if models[selectedModelIdx]?.info?.meta?.user.community}
 									<a
-										href="https://openwebui.com/m/{models[selectedModelIdx]?.info?.meta?.user
+										href="https://oasis.com/m/{models[selectedModelIdx]?.info?.meta?.user
 											.username}"
 										>{models[selectedModelIdx]?.info?.meta?.user.name
 											? models[selectedModelIdx]?.info?.meta?.user.name

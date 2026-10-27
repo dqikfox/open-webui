@@ -46,7 +46,7 @@
 					<img
 						id="logo"
 						crossorigin="anonymous"
-						src="{WEBUI_BASE_URL}/static/favicon.png"
+						src="/static/assets/ultron/ultron_logo.svg"
 						class=" w-6 rounded-full"
 						alt="logo"
 					/>
@@ -68,20 +68,20 @@
 					<Marquee
 						duration={5000}
 						words={[
-							$i18n.t('Explore the cosmos'),
-							$i18n.t('Unlock mysteries'),
-							$i18n.t('Chart new frontiers'),
-							$i18n.t('Dive into knowledge'),
-							$i18n.t('Discover wonders'),
-							$i18n.t('Ignite curiosity'),
-							$i18n.t('Forge new paths'),
-							$i18n.t('Unravel secrets'),
-							$i18n.t('Pioneer insights'),
-							$i18n.t('Embark on adventures')
+							$i18n.t('Unleash AI Power'),
+							$i18n.t('Command Intelligence'),
+							$i18n.t('Master Automation'),
+							$i18n.t('Control the Future'),
+							$i18n.t('Dominate Workflows'),
+							$i18n.t('Orchestrate Agents'),
+							$i18n.t('Harness Knowledge'),
+							$i18n.t('Deploy Solutions'),
+							$i18n.t('Execute Perfection'),
+							$i18n.t('Transcend Limits')
 						]}
 					/>
 
-					<div class="mt-0.5">{$i18n.t(`wherever you are`)}</div>
+					<div class="mt-0.5">{$i18n.t(`with OASIS`)}</div>
 				</div>
 
 				<div class="flex justify-center mt-8">
@@ -96,7 +96,7 @@
 							<ArrowRightCircle className="size-6" />
 						</button>
 						<div id="get-started" class="mt-1.5 font-primary text-base font-medium">
-							{$i18n.t(`Get started`)}
+							{$i18n.t(`Enter OASIS`)}
 						</div>
 					</div>
 				</div>

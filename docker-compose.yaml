@@ -1,6 +1,7 @@
 services:
   ollama:
     volumes:
+      - /media/ultro/CK1/models:/root/.ollama/models
       - ollama:/root/.ollama
     container_name: ollama
     pull_policy: always
@@ -8,21 +9,23 @@ services:
     restart: unless-stopped
     image: ollama/ollama:${OLLAMA_DOCKER_TAG-latest}
 
-  open-webui:
+  oasis:
     build:
       context: .
       args:
         OLLAMA_BASE_URL: '/ollama'
       dockerfile: Dockerfile
-    image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
-    container_name: open-webui
+    image: ghcr.io/oasis/oasis:${WEBUI_DOCKER_TAG-main}
+    container_name: oasis
     volumes:
-      - open-webui:/app/backend/data
+      - oasis:/app/backend/data
+      - ./backend/open_webui:/app/backend/open_webui
     depends_on:
       - ollama
     ports:
       - ${OPEN_WEBUI_PORT-3000}:8080
     environment:
+      - 'WEBUI_NAME=ARMORY'
       - 'OLLAMA_BASE_URL=http://ollama:11434'
       - 'WEBUI_SECRET_KEY='
     extra_hosts:
@@ -31,4 +34,4 @@ services:
 
 volumes:
   ollama: {}
-  open-webui: {}
+  oasis: {}

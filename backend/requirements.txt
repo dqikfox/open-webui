@@ -48,6 +48,19 @@ langchain-community==0.3.23
 fake-useragent==2.1.0
 chromadb==0.6.3
 pymilvus==2.5.0
+
+# QA$Y$ Tool Dependencies
+pyautogui>=0.9.54
+watchdog>=3.0.0
+
+# ULTRON Agent Integration - Voice/Vision/AI
+pyttsx3==2.97
+SpeechRecognition==3.12.0
+pyaudio==0.2.14
+pytesseract>=0.3.10
+opencv-python-headless==4.11.0.86
+mss==10.0.0
+httpx==0.28.1
 qdrant-client~=1.12.0
 opensearch-py==2.8.0
 playwright==1.49.1 # Caution: version must match docker-compose.playwright.yaml
@@ -139,3 +152,5 @@ opentelemetry-instrumentation-requests==0.53b1
 opentelemetry-instrumentation-logging==0.53b1
 opentelemetry-instrumentation-httpx==0.53b1
 opentelemetry-instrumentation-aiohttp-client==0.53b1
+
+typer>=0.9.0

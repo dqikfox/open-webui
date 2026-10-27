@@ -9,18 +9,26 @@ export default {
 		extend: {
 			colors: {
 				gray: {
-					50: 'var(--color-gray-50, #f9f9f9)',
-					100: 'var(--color-gray-100, #ececec)',
-					200: 'var(--color-gray-200, #e3e3e3)',
-					300: 'var(--color-gray-300, #cdcdcd)',
-					400: 'var(--color-gray-400, #b4b4b4)',
-					500: 'var(--color-gray-500, #9b9b9b)',
-					600: 'var(--color-gray-600, #676767)',
-					700: 'var(--color-gray-700, #4e4e4e)',
-					800: 'var(--color-gray-800, #333)',
-					850: 'var(--color-gray-850, #262626)',
-					900: 'var(--color-gray-900, #171717)',
-					950: 'var(--color-gray-950, #0d0d0d)'
+					50: 'var(--color-gray-50, #1a0a0a)',
+					100: 'var(--color-gray-100, #1f0f0f)',
+					200: 'var(--color-gray-200, #2a1515)',
+					300: 'var(--color-gray-300, #3d1f1f)',
+					400: 'var(--color-gray-400, #4d2626)',
+					500: 'var(--color-gray-500, #5c2e2e)',
+					600: 'var(--color-gray-600, #7a3838)',
+					700: 'var(--color-gray-700, #8f4444)',
+					800: 'var(--color-gray-800, #1a1a1a)',
+					850: 'var(--color-gray-850, #0f0f0f)',
+					900: 'var(--color-gray-900, #0a0a0a)',
+					950: 'var(--color-gray-950, #050505)'
+				},
+				ultron: {
+					red: '#ff0000',
+					'red-glow': '#ff3333',
+					'red-dark': '#cc0000',
+					'red-bright': '#ff6666',
+					dark: '#0a0a0a',
+					darker: '#050505'
 				}
 			},
 			typography: {

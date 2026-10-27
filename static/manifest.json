@@ -1,1 +1,16 @@
-{}
+{
+  "name": "ARMORY",
+  "short_name": "ARMORY",
+  "description": "Advanced AI Command Center",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ff0000",
+  "icons": [
+    {
+      "src": "/static/armory-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

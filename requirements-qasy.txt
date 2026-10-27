@@ -1,0 +1,17 @@
+# QA$Y$ Requirements
+# Install with: pip install -r requirements-qasy.txt
+
+# NVIDIA NeMo Agent Toolkit
+# Installation guide: https://github.com/NVIDIA/NeMo-Agent-Toolkit
+nemo-agent-toolkit>=0.1.0
+
+# AutoGPT Code Ability
+# Installation guide: https://github.com/Significant-Gravitas/AutoGPT-Code-Ability
+autogpt-code-ability>=0.1.0
+
+# Optional: NVIDIA NIMs for optimized inference
+# nvidia-nim>=1.0.0
+
+# Optional: Additional dependencies
+# torch>=2.0.0
+# transformers>=4.30.0

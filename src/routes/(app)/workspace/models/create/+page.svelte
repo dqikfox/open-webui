@@ -30,7 +30,7 @@
 				...modelInfo,
 				meta: {
 					...modelInfo.meta,
-					profile_image_url: modelInfo.meta.profile_image_url ?? '/static/favicon.png',
+					profile_image_url: modelInfo.meta.profile_image_url ?? '/static/assets/ultron/ultron_logo.svg',
 					suggestion_prompts: modelInfo.meta.suggestion_prompts
 						? modelInfo.meta.suggestion_prompts.filter((prompt) => prompt.content !== '')
 						: null
@@ -59,7 +59,7 @@
 	onMount(async () => {
 		window.addEventListener('message', async (event) => {
 			if (
-				!['https://openwebui.com', 'https://www.openwebui.com', 'http://localhost:5173'].includes(
+				!['https://oasis.com', 'https://www.oasis.com', 'http://localhost:5173'].includes(
 					event.origin
 				)
 			) {

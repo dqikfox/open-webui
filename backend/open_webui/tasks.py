@@ -12,9 +12,9 @@ tasks: Dict[str, asyncio.Task] = {}
 chat_tasks = {}
 
 
-REDIS_TASKS_KEY = "open-webui:tasks"
-REDIS_CHAT_TASKS_KEY = "open-webui:tasks:chat"
-REDIS_PUBSUB_CHANNEL = "open-webui:tasks:commands"
+REDIS_TASKS_KEY = "oasis:tasks"
+REDIS_CHAT_TASKS_KEY = "oasis:tasks:chat"
+REDIS_PUBSUB_CHANNEL = "oasis:tasks:commands"
 
 
 def is_redis(request: Request) -> bool:

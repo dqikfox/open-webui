@@ -34,7 +34,7 @@
 		}
 	};
 
-	let profileImageUrl = '/favicon.png';
+	let profileImageUrl = '/assets/ultron/ultron_logo.svg';
 	let description = '';
 
 	let selectedModelId = '';
@@ -90,7 +90,7 @@
 
 		name = '';
 		id = '';
-		profileImageUrl = '/favicon.png';
+		profileImageUrl = '/assets/ultron/ultron_logo.svg';
 		description = '';
 		modelIds = [];
 		selectedModelId = '';
